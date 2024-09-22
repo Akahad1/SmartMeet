@@ -1,17 +1,13 @@
-const Home = () => {
-  const onsubit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.target;
-    const userName = (form.name as HTMLInputElement).value;
-    console.log(userName);
-  };
+import RoomCards from "../../component/RoomCards/RoomCards";
+import Section1 from "../../component/Section1/Section1";
+import ServiceAdvertisement from "../../component/Services/Services";
 
+const Home = () => {
   return (
     <div>
-      <form onSubmit={onsubit}>
-        <input type="text" name="name" />
-        <button type="submit">submit</button>
-      </form>
+      <Section1></Section1>
+      <ServiceAdvertisement></ServiceAdvertisement>
+      <RoomCards></RoomCards>
     </div>
   );
 };

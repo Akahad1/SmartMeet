@@ -6,7 +6,10 @@ function App() {
   return (
     <>
       <Navber></Navber>
-      <Outlet></Outlet>
+      <div className="lg:mr-12 lg:ml-12 m-4">
+        <Outlet></Outlet>
+      </div>
+
       <Footer></Footer>
     </>
   );
