@@ -8,7 +8,13 @@ const Footer = () => {
           <p className="text-black">
             Copyright © {new Date().getFullYear()} - All right reserved
           </p>
+          <br />
         </aside>
+        <p className="text-black">
+          Number: 01851189738 <br />
+          Email: ashrafulkarim234@gmail.com
+        </p>
+
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a>
             <svg

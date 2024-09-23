@@ -3,6 +3,7 @@ import { useGetAllRoomsQuery } from "../../redux/fearutes/baseApi";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Loader from "../Loader/Loader";
 type TMeetingRoom = {
   _id: string;
   name: string;
@@ -22,7 +23,7 @@ const RoomCards = () => {
   const { data: AllRooms, isLoading } = useGetAllRoomsQuery(undefined);
 
   if (isLoading) {
-    return "loading.....";
+    return <Loader></Loader>;
   }
   console.log(AllRooms.data);
 
