@@ -1,9 +1,10 @@
+import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 const LogIn = () => {
-  const loginhander = (event) => {
+  const loginhander = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
+    const form = event.target as HTMLFormElement;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);

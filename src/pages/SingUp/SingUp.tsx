@@ -1,11 +1,12 @@
+import { FormEvent } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Singup = () => {
-  const singUpinPassword = (event) => {
+  const singUpinPassword = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
+    const form = event.target as HTMLFormElement;
+    const name = form.Fullname.value;
     const email = form.email.value;
     const number = form.number.value;
     const address = form.address.value;
@@ -41,7 +42,7 @@ const Singup = () => {
                       </label>
                       <input
                         type="name"
-                        name="name"
+                        name="Fullname"
                         placeholder="Full Name"
                         className="input input-bordered"
                         required
