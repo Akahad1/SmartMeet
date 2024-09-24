@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useGetAllRoomsQuery } from "../../redux/fearutes/baseApi";
+
 import Loader from "../../component/Loader/Loader";
+import { useGetAllRoomsQuery } from "../../redux/fearutes/randomApi/randomApi";
 type TMeetingRoom = {
   _id: string;
   name: string;

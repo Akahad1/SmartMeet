@@ -1,13 +1,39 @@
 import { FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hook";
+import { setUser, TUser } from "../../redux/fearutes/auth/authSlice";
+import { toast } from "sonner";
+import { useLogInMutation } from "../../redux/fearutes/auth/authApi";
+import { veryfiyToken } from "../../utils/veryfiyToken";
 
 const LogIn = () => {
-  const loginhander = (event: FormEvent<HTMLFormElement>) => {
+  const dispatch = useAppDispatch();
+  const [login] = useLogInMutation();
+  const loginhander = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    const tostID = toast.loading("Login");
+
+    try {
+      const userInfo = {
+        email,
+        password,
+      };
+
+      const res = await login(userInfo).unwrap();
+      const user = veryfiyToken(res.token) as TUser;
+      console.log(res);
+      dispatch(setUser({ user: user, token: res.token }));
+      toast.success("Log In successFully", { id: tostID, duration: 2000 });
+    } catch (error) {
+      toast.error("Something is rong", { id: tostID, duration: 2000 });
+      console.log(error);
+    }
+
+    form.reset();
   };
   return (
     <div>

@@ -1,30 +1,48 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { TQureyParam } from "../../types/gobal";
+import {
+  BaseQueryApi,
+  BaseQueryFn,
+  DefinitionType,
+  FetchArgs,
+  createApi,
+  fetchBaseQuery,
+} from "@reduxjs/toolkit/query/react";
+import { RootState } from "../store";
+import { toast } from "sonner";
 
+const baseQuery = fetchBaseQuery({
+  baseUrl: "http://localhost:5000/api",
+  credentials: "include",
+  prepareHeaders: (headers, { getState }) => {
+    const token = (getState() as RootState).auth.token;
+    console.log(token);
+
+    if (token) {
+      headers.set("authorization", `${token}`);
+    }
+
+    return headers;
+  },
+});
+const baseQueryWithRefreshToken: BaseQueryFn<
+  FetchArgs,
+  BaseQueryApi,
+  DefinitionType
+> = async (args, api, extraOptions): Promise<any> => {
+  const result = await baseQuery(args, api, extraOptions);
+  console.log(result);
+
+  if (result?.error?.status === 404) {
+    toast.error("User Not Found");
+  }
+  if (result?.error?.status === 403) {
+    toast.error("Password Not Macth");
+  }
+
+  return result;
+};
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api",
-  }),
-  tagTypes: ["rooms", "sloat"],
-  endpoints: (builder) => ({
-    getAllRooms: builder.query({
-      query: (args) => {
-        const params = new URLSearchParams();
-        if (args) {
-          args.forEach((item: TQureyParam) => {
-            params.append(item.name, item.value as string);
-          });
-        }
-
-        return {
-          url: "/rooms",
-          method: "GET",
-          params: params,
-        };
-      },
-    }),
-  }),
+  baseQuery: baseQueryWithRefreshToken,
+  tagTypes: ["semster", "courses"],
+  endpoints: () => ({}),
 });
-
-export const { useGetAllRoomsQuery } = baseApi;

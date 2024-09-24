@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../../../public/Imgage/Black White Yellow Simple Initial Name Logo.png";
+import { veryfiyToken } from "../../utils/veryfiyToken";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import {
+  logOut,
+  TUser,
+  useCurrentToken,
+} from "../../redux/fearutes/auth/authSlice";
 
 const Navber = () => {
+  const token = useAppSelector(useCurrentToken);
+  const dispatch = useAppDispatch();
+  let user;
+  if (token) {
+    user = veryfiyToken(token);
+  }
   return (
     <div>
       <div className="navbar bg-base-200 ">
@@ -40,9 +53,21 @@ const Navber = () => {
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
                 <Link to="/contactUs">Contact Us</Link>
               </button>
-              <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-                <Link to="/dashboard">Dashboard</Link>
-              </button>
+              {(user as TUser)?.role === "admin" ? (
+                <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
+                  <Link to="/dashboard">Dashboard</Link>
+                </button>
+              ) : (
+                <></>
+              )}
+              {(user as TUser)?.role === "user" ? (
+                <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
+                  <Link to="/MyBookings">My Bookings</Link>
+                </button>
+              ) : (
+                <></>
+              )}
+
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
                 <Link to="/register">Register</Link>
               </button>
@@ -73,19 +98,46 @@ const Navber = () => {
               <Link to="/contactUs">Contact Us</Link>
             </button>
             <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-              <Link to="/dashboard">Dashboard</Link>
-            </button>
-            <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
               <Link to="/register">Register</Link>
             </button>
+            {(user as TUser)?.role === "admin" ? (
+              <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
+                <Link to="/dashboard">Dashboard</Link>
+              </button>
+            ) : (
+              <></>
+            )}
+            {(user as TUser)?.role === "user" ? (
+              <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
+                <Link to="/MyBookings">My Bookings</Link>
+              </button>
+            ) : (
+              <></>
+            )}
           </ul>
         </div>
         <div className="navbar-end ">
-          <button className="hidden lg:flex">
-            <Link className="  lg:mr-16 mr-10" to="/logout">
-              Log Out
-            </Link>
-          </button>
+          {(user as TUser)?.role == "admin" ? (
+            <button className="hidden lg:flex">
+              <p
+                onClick={() => dispatch(logOut())}
+                className="  lg:mr-16 mr-10"
+              >
+                Log Out
+              </p>
+            </button>
+          ) : (
+            <></>
+          )}
+          {(user as TUser)?.role == "user" ? (
+            <button className="hidden lg:flex">
+              <Link className="  lg:mr-16 mr-10" to="/logout">
+                Log Out
+              </Link>
+            </button>
+          ) : (
+            <></>
+          )}
           <div className="avatar  lg:m-5 flex lg:hidden m-3">
             <div className="w-24 rounded-3xl">
               {" "}
