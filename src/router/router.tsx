@@ -8,6 +8,8 @@ import NotFound from "../component/NotFound/NotFound";
 import Singup from "../pages/SingUp/SingUp";
 import LogIn from "../pages/Login/Login";
 import MeetingRooms from "../pages/MeetingRooms/MeetingRooms";
+import CreateRoom from "../pages/Deashboard/RoomManagment/CreateRoom/CreateRoom";
+import ShowRooms from "../pages/Deashboard/RoomManagment/ShowRooms/ShowRooms";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +22,10 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Singup></Singup> },
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/meetingRooms", element: <MeetingRooms></MeetingRooms> },
+      { path: "/createRoom", element: <CreateRoom></CreateRoom> },
+      { path: "/showRooms", element: <ShowRooms></ShowRooms> },
     ],
   },
+
   { path: "*", element: <NotFound></NotFound> },
 ]);

@@ -18,6 +18,7 @@ const randomApi = baseApi.injectEndpoints({
           params: params,
         };
       },
+      providesTags: ["room"],
     }),
   }),
 });

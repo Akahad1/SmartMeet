@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery({
     console.log(token);
 
     if (token) {
-      headers.set("authorization", `${token}`);
+      headers.set("authorization", `Berrer ${token}`);
     }
 
     return headers;
@@ -43,6 +43,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: ["semster", "courses"],
+  tagTypes: ["room", "slot"],
   endpoints: () => ({}),
 });

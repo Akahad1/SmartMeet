@@ -1,16 +1,12 @@
-import { Outlet } from "react-router-dom";
-import Navber from "./component/Navber/Navber";
-import Footer from "./component/Footer/Footer";
+import Layout from "./component/layout/Layout/Layout";
+import ProtectorRoute from "./component/layout/ProtectorRoute/ProtectorRoute";
 
 function App() {
   return (
     <>
-      <Navber></Navber>
-      <div className="lg:mr-12 lg:ml-12 m-4">
-        <Outlet></Outlet>
-      </div>
-
-      <Footer></Footer>
+      {/* <ProtectorRoute role={undefined}> */}
+      <Layout></Layout>
+      {/* </ProtectorRoute> */}
     </>
   );
 }

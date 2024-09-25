@@ -5,12 +5,15 @@ import { RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 import { router } from "./router/router.tsx";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import { parsistor, store } from "./redux/store.ts";
+import { PersistGate } from "redux-persist/integration/react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}></RouterProvider>
+      <PersistGate loading={null} persistor={parsistor}>
+        <RouterProvider router={router}></RouterProvider>
+      </PersistGate>
       <Toaster />
     </Provider>
   </StrictMode>
