@@ -49,7 +49,7 @@ const CreateSlote = () => {
             <div className=" bg-center place-items-center grid mt-10 mb-10 lg:mr-10 mr-4 ml-4   ">
               <div className=" lg:w-full md:w-2/3 w-full border   bg-base-200   border-slate-900 rounded-2xl  ">
                 <h1 className="lg:text-3xl md:text-3xl   lg:ml-8 lg:mt-5 ml-16 mt-5 text-xl ">
-                  CREATE NEW ROOM
+                  CREATE SLOT
                 </h1>
 
                 <div className="card-body">

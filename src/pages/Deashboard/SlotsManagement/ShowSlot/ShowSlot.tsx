@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { toast } from "sonner";
 import Loader from "../../../../component/Loader/Loader";
-import { useGetAllSloteQuery } from "../../../../redux/fearutes/adminManagmentApi/adminManagmentApi";
+import {
+  useDeleteSloteMutation,
+  useGetAllSloteQuery,
+} from "../../../../redux/fearutes/adminManagmentApi/adminManagmentApi";
 import { TSlote } from "../../../../types/gobal";
+import UpdateSlote from "../UpdateSlote/UpdateSlote";
 
 const ShowSlot = () => {
   const { data: SlotData, isLoading } = useGetAllSloteQuery(undefined);
-  const [specificRoomId, setSpecificRoom] = useState("");
+  const [deleteSlote] = useDeleteSloteMutation(undefined);
+
   if (isLoading) {
     return <Loader></Loader>;
   }
@@ -15,10 +20,24 @@ const ShowSlot = () => {
       modal.showModal();
     }
   };
+  const deletedSloteHandler = async (id: string) => {
+    const tostID = toast.loading("Deleting Slote");
+    try {
+      const res = await deleteSlote(id);
+      if (res.error) {
+        toast.error("SomeThing is Rong", { id: tostID });
+      } else {
+        toast.success("Slote delete succesfuly", { id: tostID });
+      }
+      console.log(res);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   return (
     <div>
       <div>
-        <p className="lg:text-2xl text-center mt-10 mb-10 text-xl">ALL ROOMS</p>
+        <p className="lg:text-2xl text-center mt-10 mb-10 text-xl">ALL Slote</p>
       </div>
       <div className="mb-10">
         {SlotData?.data?.map((item: TSlote) => (
@@ -45,22 +64,21 @@ const ShowSlot = () => {
                   <td>{item.startTime}</td>
                   <td>{item.endTime}</td>
                   <td>
-                    <div className="" onClick={() => setSpecificRoom(item._id)}>
+                    <div className="">
                       <button
-                        onClick={() => openModal("my_modal_1")}
+                        onClick={() => openModal("my_modal_2")}
                         className="btn btn-xs btn-primary "
                       >
                         Update
                       </button>
-                      {/* <UpdateRoom
-                        id={item._id}
-                        specificRoomId={specificRoomId}
-                        key={item._id}
-                      ></UpdateRoom> */}
+                      <UpdateSlote id={item._id}></UpdateSlote>
                     </div>
                   </td>
                   <td>
-                    <button className="btn btn-xs bg-red-500 text-white">
+                    <button
+                      onClick={() => deletedSloteHandler(item._id)}
+                      className="btn btn-xs bg-red-500 text-white"
+                    >
                       Delete
                     </button>
                   </td>

@@ -174,9 +174,12 @@ const Navber = () => {
           )}
           {(user as TUser)?.role == "user" ? (
             <button className="hidden lg:flex">
-              <Link className="  lg:mr-16 mr-10" to="/logout">
+              <p
+                onClick={() => dispatch(logOut())}
+                className="  lg:mr-16 mr-10"
+              >
                 Log Out
-              </Link>
+              </p>
             </button>
           ) : (
             <></>

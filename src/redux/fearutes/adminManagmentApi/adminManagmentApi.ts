@@ -48,7 +48,62 @@ const adminManagmentApi = baseApi.injectEndpoints({
           params: params,
         };
       },
-      providesTags: ["room"],
+      providesTags: ["slot"],
+    }),
+    deleteSlote: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/slots/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["slot"],
+    }),
+    deleteRoom: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/rooms/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["room"],
+    }),
+    UpdateSlote: builder.mutation({
+      query: (data) => {
+        return {
+          url: `/slots/${data.id}`,
+          method: "PUT",
+          body: data.body,
+        };
+      },
+      invalidatesTags: ["slot"],
+    }),
+    getAllBooking: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQureyParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+
+        return {
+          url: "/bookings",
+          method: "GET",
+          params: params,
+        };
+      },
+      providesTags: ["booking"],
+    }),
+    updateBooking: builder.mutation({
+      query: (data) => {
+        return {
+          url: `/bookings/${data.id}`,
+          method: "PUT",
+          body: data.body,
+        };
+      },
+      invalidatesTags: ["booking"],
     }),
   }),
 });
@@ -58,4 +113,9 @@ export const {
   useUpdateRoomsMutation,
   useCreateSloteMutation,
   useGetAllSloteQuery,
+  useDeleteSloteMutation,
+  useDeleteRoomMutation,
+  useUpdateSloteMutation,
+  useGetAllBookingQuery,
+  useUpdateBookingMutation,
 } = adminManagmentApi;
