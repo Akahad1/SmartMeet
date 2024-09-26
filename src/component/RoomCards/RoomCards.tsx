@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Loader from "../Loader/Loader";
 import { useGetAllRoomsQuery } from "../../redux/fearutes/randomApi/randomApi";
-type TMeetingRoom = {
+export type TMeetingRoom = {
   _id: string;
   name: string;
   floorNo: number;
