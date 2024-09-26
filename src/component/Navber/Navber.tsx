@@ -127,7 +127,7 @@ const Navber = () => {
                           <Link to="/createSlot">Create Slot</Link>
                         </li>
                         <li>
-                          <Link to="/showSlot">Show Slot</Link>
+                          <Link to="/showSlotes">Show Slot</Link>
                         </li>
                       </ul>
                     </details>

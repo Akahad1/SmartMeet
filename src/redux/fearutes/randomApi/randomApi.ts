@@ -1,4 +1,5 @@
-import { TQureyParam } from "../../../types/gobal";
+import { TMeetingRoom } from "../../../component/RoomCards/RoomCards";
+import { TQureyParam, TResponsRedux } from "../../../types/gobal";
 import { baseApi } from "../baseApi";
 
 const randomApi = baseApi.injectEndpoints({
@@ -20,7 +21,28 @@ const randomApi = baseApi.injectEndpoints({
       },
       providesTags: ["room"],
     }),
+    getSpecificRooms: builder.query({
+      query: (id) => {
+        // const params = new URLSearchParams();
+        // if (args) {
+        //   args.forEach((item: TQureyParam) => {
+        //     params.append(item.name, item.value as string);
+        //   });
+        // }
+        console.log(id);
+        return {
+          url: `/rooms/${id}`,
+          method: "GET",
+          // params: params,
+        };
+      },
+      // transformResponse: (response: TResponsRedux<TMeetingRoom>) => {
+      //   return {
+      //     data: response.data,
+      //   };
+      // },
+    }),
   }),
 });
 
-export const { useGetAllRoomsQuery } = randomApi;
+export const { useGetAllRoomsQuery, useGetSpecificRoomsQuery } = randomApi;
