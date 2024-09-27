@@ -1,18 +1,46 @@
 import { FormEvent } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useSingUpMutation } from "../../redux/fearutes/auth/authApi";
 
 const Singup = () => {
-  const singUpinPassword = (event: FormEvent<HTMLFormElement>) => {
+  const [addSingUp] = useSingUpMutation();
+  const navigate = useNavigate();
+  const singUpinPassword = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const name = form.Fullname.value;
     const email = form.email.value;
-    const number = form.number.value;
+    const phone = form.number.value;
     const address = form.address.value;
 
     const password = form.password.value;
-    console.log(name, email, password, number, address);
+
+    const tostID = toast.loading("SingUp..");
+    try {
+      const userinfo = {
+        name,
+        email,
+        password,
+        phone,
+        role: "user", //role can be user or admin
+        address,
+      };
+      console.log(userinfo);
+
+      const res = await addSingUp(userinfo);
+      if (res.error) {
+        toast.error("SomeThing is Rong", { id: tostID });
+      } else {
+        toast.success("Singup succesfuly Please LogIn", { id: tostID });
+        form.reset();
+        navigate(`/login`);
+      }
+      console.log(res);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (

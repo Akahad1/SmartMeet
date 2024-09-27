@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { TBook } from "../../redux/fearutes/booking/bookingSlice";
+import { useAppSelector } from "../../redux/hook";
+import { useCurrentId } from "../../redux/fearutes/Rooms/roomSlice";
 
 const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
   const [showModal, setShowModal] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
+  const id = useAppSelector(useCurrentId);
 
   const handlePaymentSelection = (method: string) => {
     setPaymentMethod(method);
@@ -11,6 +14,14 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
 
   const handleConfirmBooking = () => {
     setShowModal(true);
+
+    const bookingData = {
+      date: booking?.slot.date.split("T")[0] as string,
+      slots: [booking?.slot?.id],
+      room: id,
+      user: booking?.userinfo.userid,
+    };
+    console.log("bookingData", bookingData);
   };
 
   return (
@@ -27,7 +38,7 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
           <strong>Time:</strong> {booking?.slot?.startTime}
         </p>
         <p>
-          <strong>Cost:</strong> ${booking?.slot?.pricePerSlot.toFixed(2)}
+          <strong>Cost:</strong> ৳{booking?.slot?.pricePerSlot.toFixed(2)}
         </p>
         <p>
           <strong>User Info:</strong> {booking?.userinfo?.name} (
@@ -70,7 +81,7 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-lg font-semibold mb-2">Booking Confirmation</h3>
-            <p>Thank you for your booking!</p>
+            <p className="lg:text-xl">Thank you for your booking!</p>
             <p>
               <strong>Room Name:</strong> {booking?.slot?.roomName}
             </p>
@@ -81,7 +92,7 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
               <strong>Time:</strong> {booking?.slot?.startTime}
             </p>
             <p>
-              <strong>Cost:</strong> ${booking?.slot?.pricePerSlot.toFixed(2)}
+              <strong>Cost:</strong> ৳{booking?.slot?.pricePerSlot.toFixed(2)}
             </p>
             <p>
               <strong>Payment Method:</strong> {paymentMethod}
