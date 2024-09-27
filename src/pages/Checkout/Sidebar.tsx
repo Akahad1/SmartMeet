@@ -2,30 +2,44 @@ import React, { useState } from "react";
 import { TBook } from "../../redux/fearutes/booking/bookingSlice";
 import { useAppSelector } from "../../redux/hook";
 import { useCurrentId } from "../../redux/fearutes/Rooms/roomSlice";
+import { toast } from "sonner";
+import { useCreateBookingMutation } from "../../redux/fearutes/userManagmentApi/UsermanagmentApi";
 
 const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
   const [showModal, setShowModal] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
   const id = useAppSelector(useCurrentId);
-
+  const [addbooking] = useCreateBookingMutation();
   const handlePaymentSelection = (method: string) => {
     setPaymentMethod(method);
   };
 
-  const handleConfirmBooking = () => {
-    setShowModal(true);
+  const handleConfirmBooking = async () => {
+    const tostID = toast.loading("Create Booking...");
+    try {
+      const bookingData = {
+        date: booking?.slot.date.split("T")[0] as string,
+        slots: [booking?.slot?.id],
+        room: id,
+        user: booking?.userinfo.userid,
+      };
+      console.log(bookingData);
 
-    const bookingData = {
-      date: booking?.slot.date.split("T")[0] as string,
-      slots: [booking?.slot?.id],
-      room: id,
-      user: booking?.userinfo.userid,
-    };
-    console.log("bookingData", bookingData);
+      const res = await addbooking(bookingData);
+      if (res.error) {
+        toast.error("SomeThing is Rong", { id: tostID });
+      } else {
+        toast.success("Booking Create succesfuly", { id: tostID });
+        setShowModal(true);
+      }
+      console.log(res);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div className="max-w-md mx-auto border border-gray-500 bg-white p-6 rounded-lg shadow-md mt-16 mb-16">
       <h2 className="text-xl font-semibold mb-4">Booking Summary</h2>
       <div className="mb-4">
         <p>

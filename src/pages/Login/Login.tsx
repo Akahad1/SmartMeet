@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hook";
 import { setUser, TUser } from "../../redux/fearutes/auth/authSlice";
 import { toast } from "sonner";
@@ -9,6 +9,7 @@ import { veryfiyToken } from "../../utils/veryfiyToken";
 const LogIn = () => {
   const dispatch = useAppDispatch();
   const [login] = useLogInMutation();
+  const navigate = useNavigate();
   const loginhander = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
@@ -28,6 +29,7 @@ const LogIn = () => {
       console.log(res);
       dispatch(setUser({ user: user, token: res.token }));
       toast.success("Log In successFully", { id: tostID, duration: 2000 });
+      navigate("/");
     } catch (error) {
       toast.error("Something is rong", { id: tostID, duration: 2000 });
       console.log(error);

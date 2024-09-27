@@ -17,6 +17,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import BookingForm from "../pages/BookingForm/BookingForm";
 import Checkout from "../pages/Checkout/Checkout";
 import MyBooking from "../pages/MyBooking/MyBooking";
+import ProtectorRoute from "../component/layout/ProtectorRoute/ProtectorRoute";
 
 export const router = createBrowserRouter([
   {
@@ -29,15 +30,78 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Singup></Singup> },
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/meetingRooms", element: <MeetingRooms></MeetingRooms> },
-      { path: "/createRoom", element: <CreateRoom></CreateRoom> },
-      { path: "/showRooms", element: <ShowRooms></ShowRooms> },
-      { path: "/createSlot", element: <CreateSlot></CreateSlot> },
-      { path: "/showSlotes", element: <ShowSlot></ShowSlot> },
-      { path: "/bookingRooms", element: <ShowBooking></ShowBooking> },
-      { path: "/roomDetails/:id", element: <RoomDetails></RoomDetails> },
-      { path: "/bookingform", element: <BookingForm></BookingForm> },
-      { path: "/checkout", element: <Checkout></Checkout> },
-      { path: "/myBookings", element: <MyBooking></MyBooking> },
+      {
+        path: "/createRoom",
+        element: (
+          <ProtectorRoute role="admin">
+            <CreateRoom></CreateRoom>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/showRooms",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowRooms></ShowRooms>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/createSlot",
+        element: (
+          <ProtectorRoute role="admin">
+            <CreateSlot></CreateSlot>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/showSlotes",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowSlot></ShowSlot>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/bookingRooms",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowBooking></ShowBooking>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/roomDetails/:id",
+        element: (
+          <ProtectorRoute role="user">
+            <RoomDetails></RoomDetails>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/bookingform",
+        element: (
+          <ProtectorRoute role="user">
+            <BookingForm></BookingForm>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <ProtectorRoute role="user">
+            <Checkout></Checkout>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/myBookings",
+        element: (
+          <ProtectorRoute role="user">
+            <MyBooking></MyBooking>
+          </ProtectorRoute>
+        ),
+      },
     ],
   },
 

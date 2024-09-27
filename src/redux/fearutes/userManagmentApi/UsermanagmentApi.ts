@@ -3,16 +3,16 @@ import { baseApi } from "../baseApi";
 
 const userManagmentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    // createRoom: builder.mutation({
-    //   query: (data) => {
-    //     return {
-    //       url: "/rooms",
-    //       method: "POST",
-    //       body: data,
-    //     };
-    //   },
-    //   invalidatesTags: ["room"],
-    // }),
+    createBooking: builder.mutation({
+      query: (data) => {
+        return {
+          url: "/bookings",
+          method: "POST",
+          body: data,
+        };
+      },
+      invalidatesTags: ["booking"],
+    }),
 
     getRooms: builder.query({
       query: (id) => {
@@ -75,4 +75,5 @@ export const {
   useGetUserQuery,
   useGetQuerySloteQuery,
   useGetMyBookingQuery,
+  useCreateBookingMutation,
 } = userManagmentApi;

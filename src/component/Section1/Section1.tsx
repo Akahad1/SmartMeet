@@ -21,7 +21,7 @@ const Section1 = () => {
               needs.
             </h3>
             <div className="mt-10">
-              <Link to="/mettingrooms">
+              <Link to="/meetingRooms">
                 <button className="btn  ">Book Now</button>
               </Link>
             </div>

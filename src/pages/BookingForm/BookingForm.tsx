@@ -79,45 +79,51 @@ const BookingForm = () => {
           />
         </div>
         <div>
-          <div className="overflow-x-auto mt-10">
-            <table className="table">
-              {/* head */}
-              <thead className="bg-base-300 ">
-                <tr>
-                  <th>Room Name</th>
-                  <th>Date</th>
-                  <th>startTime</th>
-                  <th>endTime</th>
-                  <th>pricePerSlot</th>
+          {SlotData === undefined ? (
+            <p className="mt-5 ml-3 mb-3 text-red-300">
+              Select your preferred date
+            </p>
+          ) : (
+            <div className="overflow-x-auto mt-10">
+              <table className="table">
+                {/* head */}
+                <thead className="bg-base-300 ">
+                  <tr>
+                    <th>Room Name</th>
+                    <th>Date</th>
+                    <th>startTime</th>
+                    <th>endTime</th>
+                    <th>pricePerSlot</th>
 
-                  <th>Booking</th>
-                </tr>
-              </thead>
-              {SlotData?.data?.map((item: TSlote) => (
-                <tbody key={item._id}>
-                  {/* row 1 */}
-                  <tr className="bg-base-200">
-                    <td className="w-60">{item.room.name}</td>
-                    <td>{item.date}</td>
-                    <td>{item.startTime}</td>
-                    <td>{item.endTime}</td>
-                    <td>{item.room.pricePerSlot}</td>
-
-                    <td>
-                      <Link to="/checkout">
-                        <button
-                          onClick={() => handleBooking(item)}
-                          className="btn  btn-primary"
-                        >
-                          Booking Slot
-                        </button>
-                      </Link>
-                    </td>
+                    <th>Booking</th>
                   </tr>
-                </tbody>
-              ))}
-            </table>
-          </div>
+                </thead>
+                {SlotData?.data?.map((item: TSlote) => (
+                  <tbody key={item._id}>
+                    {/* row 1 */}
+                    <tr className="bg-base-200">
+                      <td className="w-60">{item.room.name}</td>
+                      <td>{item.date}</td>
+                      <td>{item.startTime}</td>
+                      <td>{item.endTime}</td>
+                      <td>{item.room.pricePerSlot}</td>
+
+                      <td>
+                        <Link to="/checkout">
+                          <button
+                            onClick={() => handleBooking(item)}
+                            className="btn  btn-primary"
+                          >
+                            Booking Slot
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
+              </table>
+            </div>
+          )}
         </div>
       </div>
       <div className="border-gray-700 border lg:col-span-4 lg:ml-10 ">
