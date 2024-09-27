@@ -16,6 +16,7 @@ import ShowBooking from "../pages/Deashboard/BookingManagement/ShowBooking/ShowB
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import BookingForm from "../pages/BookingForm/BookingForm";
 import Checkout from "../pages/Checkout/Checkout";
+import MyBooking from "../pages/MyBooking/MyBooking";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
       { path: "/roomDetails/:id", element: <RoomDetails></RoomDetails> },
       { path: "/bookingform", element: <BookingForm></BookingForm> },
       { path: "/checkout", element: <Checkout></Checkout> },
+      { path: "/myBookings", element: <MyBooking></MyBooking> },
     ],
   },
 

@@ -33,7 +33,7 @@ const BookingForm = () => {
     return <Loader></Loader>;
   }
   console.log("SlotData", SlotData);
-  const { address, phone, email, name } = userData?.data;
+  const { address, phone, email, name, _id } = userData?.data;
   const handleBooking = (item: TSlote) => {
     // Create the booking object
     const bookingObject = {
@@ -47,6 +47,7 @@ const BookingForm = () => {
     const bookingInformation = {
       slot: bookingObject,
       userinfo: {
+        userid: _id,
         name,
         phone,
         email,

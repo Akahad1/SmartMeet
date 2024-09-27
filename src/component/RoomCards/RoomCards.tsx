@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Loader from "../Loader/Loader";
 import { useGetAllRoomsQuery } from "../../redux/fearutes/randomApi/randomApi";
+import { useAppDispatch } from "../../redux/hook";
+import { addRoomId } from "../../redux/fearutes/Rooms/roomSlice";
 export type TMeetingRoom = {
   _id: string;
   name: string;
@@ -26,7 +28,7 @@ const RoomCards = () => {
   if (isLoading) {
     return <Loader></Loader>;
   }
-
+  const useDispatch = useAppDispatch();
   return (
     <div className="mb-10">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-20  lg:mt-10 lg:justify-evenly">
@@ -55,7 +57,12 @@ const RoomCards = () => {
                 </h1>
 
                 <Link to={`/roomDetails/${item._id}`}>
-                  <button className="btn mt-10 w-full">See Details</button>
+                  <button
+                    className="btn mt-10 w-full"
+                    onClick={() => useDispatch(addRoomId({ id: item._id }))}
+                  >
+                    See Details
+                  </button>
                 </Link>
               </div>
             </div>

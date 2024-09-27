@@ -49,6 +49,23 @@ const userManagmentApi = baseApi.injectEndpoints({
       },
       providesTags: ["slot"],
     }),
+    getMyBooking: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQureyParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+
+        return {
+          url: "/my-bookings",
+          method: "GET",
+          params: params,
+        };
+      },
+      providesTags: ["booking"],
+    }),
   }),
 });
 
@@ -57,4 +74,5 @@ export const {
   useGetRoomsQuery,
   useGetUserQuery,
   useGetQuerySloteQuery,
+  useGetMyBookingQuery,
 } = userManagmentApi;

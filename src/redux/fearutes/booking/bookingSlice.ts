@@ -20,6 +20,7 @@ interface BookingObject {
 
 // Define the UserInfo interface
 interface UserInfo {
+  userid: string;
   name: string;
   phone: string;
   email: string;
