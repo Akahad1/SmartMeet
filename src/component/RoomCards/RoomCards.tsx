@@ -28,7 +28,7 @@ const RoomCards = () => {
   }
 
   return (
-    <div>
+    <div className="mb-10">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-20  lg:mt-10 lg:justify-evenly">
         {AllRooms?.data?.slice(0, 6)?.map((item: TMeetingRoom) => (
           <div key={item._id}>
@@ -54,13 +54,18 @@ const RoomCards = () => {
                   {item.capacity}
                 </h1>
 
-                <Link to={`/product`}>
+                <Link to={`/roomDetails/${item._id}`}>
                   <button className="btn mt-10 w-full">See Details</button>
                 </Link>
               </div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-end">
+        <Link to="/meetingRooms">
+          <button className="btn ">See All Room</button>
+        </Link>
       </div>
     </div>
   );

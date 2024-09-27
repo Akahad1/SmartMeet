@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 
 import Loader from "../../component/Loader/Loader";
 import { useGetAllRoomsQuery } from "../../redux/fearutes/randomApi/randomApi";
+import { useAppDispatch } from "../../redux/hook";
+import { addRoomId } from "../../redux/fearutes/Rooms/roomSlice";
 type TMeetingRoom = {
   _id: string;
   name: string;
@@ -19,6 +21,7 @@ type TMeetingRoom = {
 };
 
 const MeetingRooms = () => {
+  const useDispatch = useAppDispatch();
   const [param, setParm] = useState({});
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -129,8 +132,13 @@ const MeetingRooms = () => {
                     {item.capacity}
                   </h1>
 
-                  <Link to={`/product`}>
-                    <button className="btn mt-10 w-full">See Details</button>
+                  <Link to={`/roomDetails/${item._id}`}>
+                    <button
+                      onClick={() => useDispatch(addRoomId({ id: item._id }))}
+                      className="btn mt-10 w-full"
+                    >
+                      See Details
+                    </button>
                   </Link>
                 </div>
               </div>

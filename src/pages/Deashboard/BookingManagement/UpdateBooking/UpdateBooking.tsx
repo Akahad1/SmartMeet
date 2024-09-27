@@ -34,8 +34,6 @@ const UpdateBooking: React.FC<{ id: string }> = ({ id }) => {
     }
   };
 
-  //   console.log("SpecificRoom", SpecificRoom);
-
   return (
     <div>
       <div>

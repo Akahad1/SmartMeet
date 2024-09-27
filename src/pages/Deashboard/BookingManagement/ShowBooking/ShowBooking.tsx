@@ -5,7 +5,7 @@ import { useGetAllRoomsQuery } from "../../../../redux/fearutes/randomApi/random
 
 import { toast } from "sonner";
 import {
-  useDeleteRoomMutation,
+  useDeleteBookingMutation,
   useGetAllBookingQuery,
 } from "../../../../redux/fearutes/adminManagmentApi/adminManagmentApi";
 import { TBooking } from "../../../../types/gobal";
@@ -13,8 +13,8 @@ import UpdateBooking from "../UpdateBooking/UpdateBooking";
 
 const ShowBooking = () => {
   const { data: BookingData, isLoading } = useGetAllBookingQuery(undefined);
-  const [deleteRoom] = useDeleteRoomMutation();
-  const [specificRoomId, setSpecificRoom] = useState("");
+  const [deletbooking] = useDeleteBookingMutation();
+
   if (isLoading) {
     return <Loader></Loader>;
   }
@@ -25,14 +25,14 @@ const ShowBooking = () => {
     }
     console.log(BookingData);
   };
-  const deletedSloteHandler = async (id: string) => {
+  const deletedBookingHandler = async (id: string) => {
     const tostID = toast.loading("Deleting Slote");
     try {
-      const res = await deleteRoom(id);
+      const res = await deletbooking(id);
       if (res.error) {
         toast.error("SomeThing is Rong", { id: tostID });
       } else {
-        toast.success("Room delete  succesfuly", { id: tostID });
+        toast.success("Booking delete  succesfuly", { id: tostID });
       }
       console.log(res);
     } catch (error) {
@@ -71,7 +71,7 @@ const ShowBooking = () => {
                   <td>{item.isConfirmed}</td>
 
                   <td>
-                    <div className="" onClick={() => setSpecificRoom(item._id)}>
+                    <div className="">
                       <button
                         onClick={() => openModal("my_modal_3")}
                         className="btn btn-xs btn-primary "
@@ -83,7 +83,7 @@ const ShowBooking = () => {
                   </td>
                   <td>
                     <button
-                      onClick={() => deletedSloteHandler(item._id)}
+                      onClick={() => deletedBookingHandler(item._id)}
                       className="btn btn-xs bg-red-500 text-white"
                     >
                       Delete

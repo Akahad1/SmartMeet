@@ -54,9 +54,49 @@ const Navber = () => {
                 <Link to="/contactUs">Contact Us</Link>
               </button>
               {(user as TUser)?.role === "admin" ? (
-                <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-                  <Link to="/dashboard">Dashboard</Link>
-                </button>
+                <details className="dropdown">
+                  <summary className="  mt-1 ml-20  text-lg ">
+                    Dashboard
+                  </summary>
+                  <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li>
+                      <details className="dropdown">
+                        <summary className=" ">Room Management</summary>
+                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <li>
+                            <Link to="/createRoom">Create Room</Link>
+                          </li>
+                          <li>
+                            <Link to="/showRooms">Show Rooms</Link>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details className="dropdown">
+                        <summary className=" ">Slots Management</summary>
+                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <li>
+                            <Link to="/createSlot">Create Slot</Link>
+                          </li>
+                          <li>
+                            <Link to="/showSlotes">Show Slot</Link>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details className="dropdown">
+                        <summary className=" ">Booking Management</summary>
+                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <li>
+                            <Link to="/bookingRooms">Booking Rooms</Link>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
               ) : (
                 <></>
               )}
@@ -138,9 +178,6 @@ const Navber = () => {
                       <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <li>
                           <Link to="/bookingRooms">Booking Rooms</Link>
-                        </li>
-                        <li>
-                          <Link to="/showSlot">Show Slot</Link>
                         </li>
                       </ul>
                     </details>

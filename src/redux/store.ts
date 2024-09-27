@@ -13,16 +13,34 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { baseApi } from "./fearutes/baseApi";
+import roomReducer from "./fearutes/Rooms/roomSlice";
+import bookingReducer from "./fearutes/booking/bookingSlice";
 
 const persistConfig = {
   key: "auth",
   storage,
 };
+const roomPersistConfig = {
+  key: "room",
+  storage,
+};
+const bookingPersistConfig = {
+  key: "booking",
+  storage,
+};
+const persistedRoomReducer = persistReducer(roomPersistConfig, roomReducer);
+const persistedBookingReducer = persistReducer(
+  bookingPersistConfig,
+  bookingReducer
+);
+
 const parsistAuthReducer = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     auth: parsistAuthReducer,
+    room: persistedRoomReducer,
+    booking: persistedBookingReducer,
   },
   middleware: (getDefultMiddleware) =>
     getDefultMiddleware({

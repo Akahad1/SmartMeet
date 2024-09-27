@@ -13,6 +13,9 @@ import ShowRooms from "../pages/Deashboard/RoomManagment/ShowRooms/ShowRooms";
 import ShowSlot from "../pages/Deashboard/SlotsManagement/ShowSlot/ShowSlot";
 import CreateSlot from "../pages/Deashboard/SlotsManagement/CreateSlot/CreateSlot";
 import ShowBooking from "../pages/Deashboard/BookingManagement/ShowBooking/ShowBooking";
+import RoomDetails from "../pages/RoomDetails/RoomDetails";
+import BookingForm from "../pages/BookingForm/BookingForm";
+import Checkout from "../pages/Checkout/Checkout";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +33,9 @@ export const router = createBrowserRouter([
       { path: "/createSlot", element: <CreateSlot></CreateSlot> },
       { path: "/showSlotes", element: <ShowSlot></ShowSlot> },
       { path: "/bookingRooms", element: <ShowBooking></ShowBooking> },
+      { path: "/roomDetails/:id", element: <RoomDetails></RoomDetails> },
+      { path: "/bookingform", element: <BookingForm></BookingForm> },
+      { path: "/checkout", element: <Checkout></Checkout> },
     ],
   },
 

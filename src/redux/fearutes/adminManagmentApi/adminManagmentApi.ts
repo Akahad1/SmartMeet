@@ -68,6 +68,15 @@ const adminManagmentApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["room"],
     }),
+    deleteBooking: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/bookings/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["booking"],
+    }),
     UpdateSlote: builder.mutation({
       query: (data) => {
         return {
@@ -118,4 +127,5 @@ export const {
   useUpdateSloteMutation,
   useGetAllBookingQuery,
   useUpdateBookingMutation,
+  useDeleteBookingMutation,
 } = adminManagmentApi;
