@@ -55,10 +55,10 @@ By supporting these roles, Smart Meet simplifies the booking process for users a
 
 ### Admin Role
 
-**email** web@programming-hero.com
-**password** ph-password
+- **email**: web@programming-hero.com
+- **password**: ph-password
 
 ### User Role
 
-**email** rafid@gmail.com
-**password** 123456
+- **email**: rafid@gmail.com
+- **password**: 123456
