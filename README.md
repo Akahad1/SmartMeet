@@ -62,3 +62,8 @@ By supporting these roles, Smart Meet simplifies the booking process for users a
 
 - **email**: rafid@gmail.com
 - **password**: 123456
+
+## Link
+
+- **Client Site**: https://smart-meet-nine.vercel.app/
+- **Server Site**: https://assinment-3-one.vercel.app
