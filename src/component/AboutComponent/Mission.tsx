@@ -2,18 +2,18 @@ import React from "react";
 
 const Mission: React.FC = () => {
   return (
-    <section className="py-10 bg-white">
-      <div className="container mx-auto text-center lg:flex">
+    <section className="py-10 bg-white ">
+      <div className="container mx-auto text-center lg:grid lg:grid-cols-8 ">
         <img
           src="https://i.ibb.co.com/2KJTDDH/5898741.jpg"
           alt="Mission Graphic"
-          className="w-full mx-auto animate-pulse"
+          className="w-full lg:col-span-5 mx-auto animate-pulse"
         />
-        <div className="lg:w-2/3 lg:ml-10">
+        <div className="lg:ml-10 lg:col-span-3">
           <h2 className="text-4xl font-bold mb-6 mt-10 lg:mt-40">
             Our Mission
           </h2>
-          <p className="  text-gray-700 mb-6">
+          <p className="   mb-6">
             Our mission is to provide co-working spaces with an efficient and
             user-friendly Meeting Room Booking System that simplifies the
             scheduling process. We aim to enhance productivity by eliminating

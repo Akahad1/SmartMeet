@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import Loader from "../../component/Loader/Loader";
 import { useGetAllRoomsQuery } from "../../redux/fearutes/randomApi/randomApi";
 import { useAppDispatch } from "../../redux/hook";
@@ -39,7 +37,7 @@ const MeetingRooms = () => {
     <div>
       <div>
         <div>
-          <div className="container mx-auto p-4">
+          <div className="container mx-auto p-4 ">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               {/* Search Input */}
               <input
@@ -107,7 +105,7 @@ const MeetingRooms = () => {
         </div>
       </div>
       <div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-20  lg:mt-10 lg:justify-evenly">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  lg:gap-20  lg:mt-10 lg:justify-evenly">
           {AllRooms?.data?.map((item: TMeetingRoom) => (
             <div key={item._id}>
               <div

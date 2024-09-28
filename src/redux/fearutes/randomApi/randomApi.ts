@@ -1,5 +1,4 @@
-import { TMeetingRoom } from "../../../component/RoomCards/RoomCards";
-import { TQureyParam, TResponsRedux } from "../../../types/gobal";
+import { TQureyParam } from "../../../types/gobal";
 import { baseApi } from "../baseApi";
 
 const randomApi = baseApi.injectEndpoints({

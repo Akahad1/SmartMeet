@@ -1,12 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-import { TSlote } from "../../../types/gobal";
-
-// Define the Room interface
-interface Room {
-  name: string;
-  pricePerSlot: number;
-}
 
 // Define the BookingObject interface
 interface BookingObject {

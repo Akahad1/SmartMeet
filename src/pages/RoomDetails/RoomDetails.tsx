@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { TMeetingRoom } from "../../component/RoomCards/RoomCards";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
 import { AiFillLinkedin, AiOutlineTwitter } from "react-icons/ai";
@@ -7,11 +6,6 @@ import { useAppSelector } from "../../redux/hook";
 import { useCurrentId } from "../../redux/fearutes/Rooms/roomSlice";
 import { useGetRoomsQuery } from "../../redux/fearutes/userManagmentApi/UsermanagmentApi";
 import Loader from "../../component/Loader/Loader";
-type TLoaderData = {
-  success: boolean;
-  mesages: string;
-  data: TMeetingRoom;
-};
 const RoomDetails = () => {
   const id = useAppSelector(useCurrentId);
   console.log("id", id);
@@ -29,7 +23,7 @@ const RoomDetails = () => {
     <div>
       <div>
         <div>
-          <div className="mt-20 mb-20 lg:mr-14 md:mr-14 h-2/4 mr-3 ml-3  lg:h-96 card lg:card-side  justify-center">
+          <div className="mt-20 mb-20 lg:mr-14 md:mr-14 h-2/4 mr-3 ml-3   lg:h-96 card lg:card-side  justify-center">
             <figure>
               <div className=" lg:h-70 md:h-96 h-70  w-96  mb-7 ">
                 <img src={Image} alt="" />

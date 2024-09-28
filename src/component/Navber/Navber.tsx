@@ -54,56 +54,76 @@ const Navber = () => {
                 <Link to="/contactUs">Contact Us</Link>
               </button>
               {(user as TUser)?.role === "admin" ? (
-                <details className="dropdown">
-                  <summary className="  mt-1 ml-20  text-lg ">
-                    Dashboard
-                  </summary>
-                  <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    <li>
-                      <details className="dropdown">
-                        <summary className=" ">Room Management</summary>
-                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                          <li>
-                            <Link to="/createRoom">Create Room</Link>
-                          </li>
-                          <li>
-                            <Link to="/showRooms">Show Rooms</Link>
-                          </li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details className="dropdown">
-                        <summary className=" ">Slots Management</summary>
-                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                          <li>
-                            <Link to="/createSlot">Create Slot</Link>
-                          </li>
-                          <li>
-                            <Link to="/showSlotes">Show Slot</Link>
-                          </li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details className="dropdown">
-                        <summary className=" ">Booking Management</summary>
-                        <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                          <li>
-                            <Link to="/bookingRooms">Booking Rooms</Link>
-                          </li>
-                        </ul>
-                      </details>
-                    </li>
-                  </ul>
-                </details>
+                <>
+                  <details className="dropdown">
+                    <summary className="  mt-1 ml-20  text-lg ">
+                      Dashboard
+                    </summary>
+                    <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li>
+                        <details className="dropdown">
+                          <summary className=" ">Room Management</summary>
+                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <li>
+                              <Link to="/createRoom">Create Room</Link>
+                            </li>
+                            <li>
+                              <Link to="/showRooms">Show Rooms</Link>
+                            </li>
+                          </ul>
+                        </details>
+                      </li>
+                      <li>
+                        <details className="dropdown">
+                          <summary className=" ">Slots Management</summary>
+                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <li>
+                              <Link to="/createSlot">Create Slot</Link>
+                            </li>
+                            <li>
+                              <Link to="/showSlotes">Show Slot</Link>
+                            </li>
+                          </ul>
+                        </details>
+                      </li>
+                      <li>
+                        <details className="dropdown">
+                          <summary className=" ">Booking Management</summary>
+                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <li>
+                              <Link to="/bookingRooms">Booking Rooms</Link>
+                            </li>
+                          </ul>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                  <button className="lg:hidden mt-1 text-lg ml-3">
+                    <p
+                      onClick={() => dispatch(logOut())}
+                      className="  lg:mr-16 mr-10"
+                    >
+                      Log Out
+                    </p>
+                  </button>
+                </>
               ) : (
                 <></>
               )}
               {(user as TUser)?.role === "user" ? (
-                <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-                  <Link to="/MyBookings">My Bookings</Link>
-                </button>
+                <>
+                  <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
+                    <Link to="/MyBookings">My Bookings</Link>
+                  </button>
+                  <button className="lg:hidden mt-1 text-lg ml-3">
+                    <p
+                      onClick={() => dispatch(logOut())}
+                      className="  lg:mr-16 mr-10"
+                    >
+                      Log Out
+                    </p>
+                  </button>
+                </>
               ) : (
                 <></>
               )}
@@ -198,7 +218,7 @@ const Navber = () => {
         </div>
         <div className="navbar-end ">
           {(user as TUser)?.role == "admin" ? (
-            <button className="hidden lg:flex">
+            <button className="hidden lg:flex text-xl">
               <p
                 onClick={() => dispatch(logOut())}
                 className="  lg:mr-16 mr-10"
@@ -210,7 +230,7 @@ const Navber = () => {
             <></>
           )}
           {(user as TUser)?.role == "user" ? (
-            <button className="hidden lg:flex">
+            <button className="hidden lg:flex text-xl">
               <p
                 onClick={() => dispatch(logOut())}
                 className="  lg:mr-16 mr-10"

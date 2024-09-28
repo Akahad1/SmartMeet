@@ -1,8 +1,4 @@
-import { useState } from "react";
 import Loader from "../../../../component/Loader/Loader";
-import { TMeetingRoom } from "../../../../component/RoomCards/RoomCards";
-import { useGetAllRoomsQuery } from "../../../../redux/fearutes/randomApi/randomApi";
-
 import { toast } from "sonner";
 import {
   useDeleteBookingMutation,

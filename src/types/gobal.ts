@@ -13,12 +13,7 @@ export type TError = {
   };
   status: number;
 };
-type TMeta = {
-  limit: number;
-  page: number;
-  total: number;
-  totalPage: number;
-};
+
 export type TResponse<T> = {
   data?: T;
 

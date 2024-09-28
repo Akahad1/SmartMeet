@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# Smart Meet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Smart Meet** is a meeting room booking system designed for co-working spaces. It provides two roles: users who can book meeting rooms in available time slots, and admins who can create room slots and view bookings. The system is built to streamline the room booking process and ensure efficient management of resources.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+- [Project Description](#project-description)
+- [Technology Stack](#technology-stack)
+- [Installation Steps](#installation-steps)
+- [Configuration](#configuration)
 
-## Expanding the ESLint configuration
+## Introduction
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Smart Meet is a feature-rich web application for managing meeting room bookings in co-working spaces. The platform is designed to support two distinct roles:
 
-- Configure the top-level `parserOptions` property like this:
+- **Users**: Can search for available rooms, filter based on specific criteria like price and capacity, and book meeting slots.
+- **Admins**: Have the ability to create new rooms, assign available time slots, and view all bookings made by users.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The goal of Smart Meet is to create a seamless experience for both users and admins, ensuring that meeting rooms are efficiently utilized and managed.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Project Description
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Smart Meet offers a complete solution for booking and managing meeting rooms with the following core features:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### User Role:
+
+- Search meeting rooms by name or keyword.
+- Filter rooms based on capacity and price.
+- Sort rooms by price per slot (ascending or descending).
+- Book available slots for selected meeting rooms.
+- View and manage their bookings.
+
+### Admin Role:
+
+- Create new meeting rooms with specified details (capacity, price, etc.).
+- Assign available time slots to rooms for users to book.
+- View all bookings made by users for management and oversight purposes.
+
+By supporting these roles, Smart Meet simplifies the booking process for users and provides tools for admins to manage room availability effectively.
+
+## Technology Stack
+
+- **React**: For building the user interface.
+- **React Router DOM**: For handling navigation and routing between different views.
+- **Redux & Redux Toolkit**: For state management, especially for managing user roles, authentication, and bookings.
+- **Tailwind CSS**: For styling and responsive design.
+- **Daisy UI**: For pre-built Tailwind CSS components.
+- **TypeScript**: For type-safe JavaScript development.
+- **Node.js & Express**: Backend to handle API requests and business logic .
+- **MongoDB**: For data persistence (e.g., storing user information, rooms, and bookings) .
+- **JWT**: For user authentication .
+
+## Installation Steps
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/smart-meet.git
+cd smart-meet
 ```
