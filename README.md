@@ -51,7 +51,7 @@ By supporting these roles, Smart Meet simplifies the booking process for users a
 - **MongoDB**: For data persistence (e.g., storing user information, rooms, and bookings) .
 - **JWT**: For user authentication .
 
-## Installation Steps
+## LogIn Steps
 
 ### Admin Role
 
