@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Section1 = () => {
   return (
-    <div className="">
+    <div>
       <div
         className="hero lg:min-h-[80vh] md:min-h-[50vh] min-h-[40vh]  "
         style={{
