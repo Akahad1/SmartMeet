@@ -53,9 +53,12 @@ By supporting these roles, Smart Meet simplifies the booking process for users a
 
 ## Installation Steps
 
-### 1. Clone the Repository
+### Admin Role
 
-```bash
-git clone https://github.com/your-username/smart-meet.git
-cd smart-meet
-```
+**email** web@programming-hero.com
+**password** ph-password
+
+### User Role
+
+**email** rafid@gmail.com
+**password** 123456
