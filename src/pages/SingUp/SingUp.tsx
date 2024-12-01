@@ -4,164 +4,169 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useSingUpMutation } from "../../redux/fearutes/auth/authApi";
 
-const Singup = () => {
+const Signup = () => {
   const [addSingUp] = useSingUpMutation();
   const navigate = useNavigate();
+
   const singUpinPassword = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const name = form.Fullname.value;
+    const name = form.fullname.value;
     const email = form.email.value;
-    const phone = form.number.value;
+    const phone = form.phone.value;
     const address = form.address.value;
-
     const password = form.password.value;
 
-    const tostID = toast.loading("SingUp..");
+    const tostID = toast.loading("Signing up...");
     try {
       const userinfo = {
         name,
         email,
         password,
         phone,
-        role: "user", //role can be user or admin
+        role: "user",
         address,
       };
-      console.log(userinfo);
 
       const res = await addSingUp(userinfo);
       if (res.error) {
-        toast.error("SomeThing is Rong", { id: tostID });
+        toast.error("Something went wrong", { id: tostID });
       } else {
-        toast.success("Singup succesfuly Please LogIn", { id: tostID });
+        toast.success("Signup successful! Please log in.", { id: tostID });
         form.reset();
         navigate(`/login`);
       }
-      console.log(res);
     } catch (error) {
       console.log("error", error);
     }
   };
 
   return (
-    <div>
-      <div>
-        <div className=" grid lg:grid-cols-8">
-          <div className=" lg:col-span-4">
-            <img
-              className=" lg:w-full  "
-              src="https://i.ibb.co/FJPbC4f/2968290.jpg"
-              alt=""
-            />
-          </div>
-          <div className="lg:col-span-4">
-            <div className=" bg-center place-items-center grid mt-10 mb-10 lg:mr-10 mr-4 ml-4   ">
-              <div className=" lg:w-full md:w-2/3 w-full border   bg-base-200   border-slate-900 rounded-2xl  ">
-                <h1 className="lg:text-3xl md:text-3xl   lg:ml-8 lg:mt-5 ml-16 mt-5 text-xl ">
-                  CREATE NEW ACCOUNT
-                </h1>
+    <div className="min-h-screen flex flex-col lg:flex-row ">
+      {/* Left Image Section */}
+      <div className="hidden lg:flex lg:w-1/2 items-center justify-center ">
+        <img
+          src="https://lottie.host/embed/08d655c0-92c4-4237-bf56-0b600827aeba/hgwzpmUz7z.lottie"
+          alt="Signup Illustration"
+          className="h-full w-full object-cover"
+        />
+      </div>
 
-                <div className="card-body">
-                  {/* 1/ */}
-                  <form onSubmit={singUpinPassword}>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text"> Full Name</span>
-                      </label>
-                      <input
-                        type="name"
-                        name="Fullname"
-                        placeholder="Full Name"
-                        className="input input-bordered"
-                        required
-                      />
-                    </div>
-                    {/* 2 */}
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text "> Email</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="email"
-                        className="input input-bordered "
-                        required
-                      />
-                    </div>
-                    {/* 3 */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text ">Phone number</span>
-                      </label>
-                      <input
-                        type="number"
-                        name="number"
-                        placeholder="number"
-                        className="input input-bordered "
-                        required
-                      />
-                    </div>
-                    {/* 3 */}
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text ">Address</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="address"
-                        placeholder="address"
-                        className="input input-bordered "
-                        required
-                      />
-                    </div>
-                    {/* 4 */}
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text  ">Password</span>
-                      </label>
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        className="input input-bordered "
-                        required
-                      />
-                      <label className="label">
-                        <span className="label-text-alt">
-                          {" "}
-                          You already singup please{" "}
-                          <Link to="/login" className="text-red-500">
-                            Log in
-                          </Link>
-                        </span>
-                      </label>
-                      <label className="label">
-                        <span className="label-text-alt text-red-500 "></span>
-                      </label>
-                    </div>
-                    <div className="    ">
-                      <button className="btn   w-full   ">
-                        <FaGoogle className="inline mr-3 text-xl" />
-                        Continue with Google
-                      </button>
-                    </div>
-                    <div className="form-control mt-6">
-                      <button type="submit" className="btn btn-primary ">
-                        Sing Up
-                      </button>
-                    </div>
-                  </form>
-                </div>
+      {/* Right Form Section */}
+      <div className="flex items-center justify-center w-full lg:w-1/2 p-6">
+        <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+            Create Your Account
+          </h2>
+          <form onSubmit={singUpinPassword}>
+            <div className="space-y-4">
+              <div>
+                <label
+                  htmlFor="fullname"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fullname"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="example@mail.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="+123456789"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="123 Main Street"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  className="input input-bordered w-full mt-1"
+                  placeholder="••••••••"
+                  required
+                />
               </div>
             </div>
-          </div>
+
+            <button type="submit" className="btn btn-primary w-full mt-6">
+              Sign Up
+            </button>
+
+            <div className="flex items-center justify-center mt-4">
+              <button
+                type="button"
+                className="btn bg-red-500 text-white hover:bg-red-600 flex items-center px-4 py-2 rounded-lg"
+              >
+                <FaGoogle className="mr-2" />
+                Continue with Google
+              </button>
+            </div>
+
+            <p className="text-sm text-center mt-4 text-gray-600">
+              Already have an account?{" "}
+              <Link to="/login" className="text-blue-500 hover:underline">
+                Log in
+              </Link>
+            </p>
+          </form>
         </div>
       </div>
     </div>
   );
 };
 
-export default Singup;
+export default Signup;
