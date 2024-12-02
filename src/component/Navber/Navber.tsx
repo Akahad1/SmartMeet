@@ -7,8 +7,29 @@ import {
   TUser,
   useCurrentToken,
 } from "../../redux/fearutes/auth/authSlice";
+import { useEffect, useState } from "react";
 
 const Navber = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check if the user previously selected dark mode in the local storage
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode) {
+      setDarkMode(savedMode === "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    // Apply the class to the body to switch between light and dark modes
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
+    }
+  }, [darkMode]);
   const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
   let user;
@@ -17,7 +38,7 @@ const Navber = () => {
   }
   return (
     <div>
-      <div className="navbar bg-base-200 ">
+      <div className="navbar bg-base-200 dark:border-y dark:border-slate-700  dark:bg-gray-900 dark:text-white ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +59,7 @@ const Navber = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-80 p-2 shadow"
+              className="menu dark:bg-gray-900 dark:text-white menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-80 p-2 shadow"
             >
               <button className="lg:mr-14 lg:mt-0 mt-1 text-lg  ">
                 <Link to="/">Home</Link>
@@ -59,11 +80,11 @@ const Navber = () => {
                     <summary className="  mt-1 ml-20  text-lg ">
                       Dashboard
                     </summary>
-                    <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <ul className="menu  dropdown-content dark:bg-gray-900 dark:text-white bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                       <li>
                         <details className="dropdown">
                           <summary className=" ">Room Management</summary>
-                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                             <li>
                               <Link to="/createRoom">Create Room</Link>
                             </li>
@@ -76,7 +97,7 @@ const Navber = () => {
                       <li>
                         <details className="dropdown">
                           <summary className=" ">Slots Management</summary>
-                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                             <li>
                               <Link to="/createSlot">Create Slot</Link>
                             </li>
@@ -89,7 +110,7 @@ const Navber = () => {
                       <li>
                         <details className="dropdown">
                           <summary className=" ">Booking Management</summary>
-                          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                          <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                             <li>
                               <Link to="/bookingRooms">Booking Rooms</Link>
                             </li>
@@ -165,11 +186,11 @@ const Navber = () => {
                 <summary className="lg:mr-10 lg:mt-0 mt-1 text-lg ">
                   Dashboard
                 </summary>
-                <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                <ul className="menu dropdown-content dark:bg-gray-900 dark:text-white bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <li>
                     <details className="dropdown">
                       <summary className=" ">Room Management</summary>
-                      <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <li>
                           <Link to="/createRoom">Create Room</Link>
                         </li>
@@ -182,7 +203,7 @@ const Navber = () => {
                   <li>
                     <details className="dropdown">
                       <summary className=" ">Slots Management</summary>
-                      <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <li>
                           <Link to="/createSlot">Create Slot</Link>
                         </li>
@@ -195,7 +216,7 @@ const Navber = () => {
                   <li>
                     <details className="dropdown">
                       <summary className=" ">Booking Management</summary>
-                      <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <ul className="menu dark:bg-gray-900 dark:text-white dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <li>
                           <Link to="/bookingRooms">Booking Rooms</Link>
                         </li>
@@ -218,33 +239,55 @@ const Navber = () => {
         </div>
         <div className="navbar-end ">
           {(user as TUser)?.role == "admin" ? (
-            <button className="hidden lg:flex text-xl">
-              <p
-                onClick={() => dispatch(logOut())}
-                className="  lg:mr-16 mr-10"
-              >
-                Log Out
-              </p>
-            </button>
+            <>
+              <button className="hidden lg:flex text-xl">
+                <p
+                  onClick={() => dispatch(logOut())}
+                  className="  lg:mr-16 mr-10"
+                >
+                  Log Out
+                </p>
+              </button>
+            </>
           ) : (
             <></>
           )}
           {(user as TUser)?.role == "user" ? (
-            <button className="hidden lg:flex text-xl">
-              <p
-                onClick={() => dispatch(logOut())}
-                className="  lg:mr-16 mr-10"
-              >
-                Log Out
-              </p>
-            </button>
+            <>
+              <button className="hidden lg:flex text-xl">
+                <p
+                  onClick={() => dispatch(logOut())}
+                  className="  lg:mr-16 mr-10"
+                >
+                  Log Out
+                </p>
+              </button>
+            </>
           ) : (
             <></>
           )}
-          <div className="avatar  lg:m-5 flex lg:hidden m-3">
-            <div className="w-24 rounded-3xl">
-              {" "}
-              <img src={logo} />
+          <div className="flex">
+            <div>
+              <label className="inline-flex items-center cursor-pointer lg:mt-0 mt-14 mr-2">
+                {/* <span className="mr-2 text-gray-800 dark:text-gray-200">
+                  Light Mode
+                </span> */}
+                <input
+                  type="checkbox"
+                  className="toggle toggle-accent"
+                  checked={darkMode}
+                  onChange={() => setDarkMode(!darkMode)}
+                />
+                {/* <span className="ml-2 text-gray-800 dark:text-gray-200">
+                  Dark Mode
+                </span> */}
+              </label>
+            </div>
+            <div className="avatar  lg:m-5 flex lg:hidden m-3">
+              <div className="w-24 rounded-3xl">
+                {" "}
+                <img src={logo} />
+              </div>
             </div>
           </div>
         </div>

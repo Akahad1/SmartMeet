@@ -1,8 +1,8 @@
 const ServiceAdvertisement = () => {
   return (
     <div>
-      <div className="lg:ml-0 md:ml-16 ml-10 lg:mt-10 md:mt-10 mt-5 pb-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
-        <div className="card bg-base-300 w-72 shadow-xl lg:mb-0 md:mb-9 mb-8">
+      <div className="lg:ml-0 md:ml-16 ml-10 lg:mt-10 md:mt-10 mt-5 pb-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
+        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 2 */}
-        <div className="card bg-base-300 w-72 lg:ml-8 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-8 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 3 */}
-        <div className="card bg-base-300 w-72 lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 4 */}
-        <div className="card bg-base-300 w-72  lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 w-72 dark:bg-slate-800 dark:text-white  lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"

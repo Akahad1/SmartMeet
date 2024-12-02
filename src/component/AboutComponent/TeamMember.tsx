@@ -29,14 +29,14 @@ const teamMembers: TeamMember[] = [
 
 const Team: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-slate-800 dark:text-white">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-12">Meet the Team</h2>
         <div className=" lg:flex  md:flex md:justify-center lg:justify-center space-x-8">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg w-64 lg:m-0 md:m-0 m-auto mb-9"
+              className="bg-white dark:bg-gray-900 dark:text-white p-6 rounded-lg shadow-lg w-64 lg:m-0 md:m-0 m-auto mb-9"
             >
               <div className="avatar">
                 <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">

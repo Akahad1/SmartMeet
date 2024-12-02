@@ -2,7 +2,7 @@ import React from "react";
 
 const Mission: React.FC = () => {
   return (
-    <section className="py-10 bg-white ">
+    <section className="py-10 bg-white dark:bg-gray-900 dark:text-white ">
       <div className="container mx-auto text-center lg:grid lg:grid-cols-8 ">
         <img
           src="https://i.ibb.co.com/2KJTDDH/5898741.jpg"

@@ -3,13 +3,13 @@ import React from "react";
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-200">
+    <section className="py-16 bg-gray-200 dark:bg-slate-800 dark:text-white">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">What Our Customers Say</h2>
 
         <div className="carousel w-full max-w-4xl mx-auto">
           <div id="slide1" className="carousel-item relative lg:w-1/2 w-full ">
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+            <div className="text-center p-6 bg-white dark:bg-gray-700 dark:text-white rounded-lg shadow-lg">
               <img
                 className="mx-auto rounded-full w-24 h-24 mb-4"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlgt-vJV3knuL3V-7ouIoAet_VkXPag6i1YQ&usqp=CAU"
@@ -36,7 +36,7 @@ const Testimonials: React.FC = () => {
             id="slide2"
             className="carousel-item relative w-full lg:w-1/2 lg:ml-3"
           >
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+            <div className="text-center p-6 bg-white dark:bg-gray-700 dark:text-white rounded-lg shadow-lg">
               <img
                 className="mx-auto rounded-full w-24 h-24 mb-4"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhpR47uioH7CIHEzPmi_J6NfMyIiEFnSrEw&usqp=CAU"
@@ -63,7 +63,7 @@ const Testimonials: React.FC = () => {
             id="slide3"
             className="carousel-item relative w-full lg:w-1/2 lg:ml-3"
           >
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+            <div className="text-center p-6 bg-white dark:bg-gray-700 dark:text-white rounded-lg shadow-lg">
               <img
                 className="mx-auto rounded-full w-24 h-24 mb-4"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnxzVyc43dv5VWrphP0R9x9ha3PhhhSMS_wg&usqp=CAU"
@@ -91,7 +91,7 @@ const Testimonials: React.FC = () => {
             id="slide4"
             className="carousel-item relative w-full lg:w-1/2 lg:ml-3"
           >
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
+            <div className="text-center p-6 bg-white dark:bg-gray-700 dark:text-white rounded-lg shadow-lg">
               <img
                 className="mx-auto rounded-full w-24 h-24 mb-4"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ697qrwKnPnwZv2R9PC3xHIXmOMGvvHdQZAA&usqp=CAU"

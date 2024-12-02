@@ -26,7 +26,7 @@ const RoomCards = () => {
   const { data: AllRooms, isLoading } = useGetAllRoomsQuery(undefined);
 
   if (isLoading) {
-    return <Loader></Loader>;
+    return <p>Loadding..</p>;
   }
   const useDispatch = useAppDispatch();
   return (

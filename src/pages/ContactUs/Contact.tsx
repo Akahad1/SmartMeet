@@ -20,40 +20,40 @@ const Contract = () => {
       <div className="hero mt-12   flex justify-center">
         <div className="hero-content  flex-col lg:flex-row-reverse">
           <div
-            className="card  lg:w-96 ml-5  w-full  border bg-gray-200    rounded-2xl "
+            className="card  lg:w-96 ml-5  w-full  border bg-gray-200  dark:bg-slate-800 dark:text-white  rounded-2xl "
             data-aos="fade-left"
           >
             <form>
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text "> Name</span>
+                    <span className="label-text  dark:text-white"> Name</span>
                   </label>
                   <input
                     type="text"
                     name="from_name"
                     placeholder=" Type frist-name"
-                    className="input input-bordered bg-gray-300"
+                    className="input input-bordered bg-gray-300  dark:text-white  dark:bg-slate-600"
                   />
                 </div>
 
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text ">Email</span>
+                    <span className="label-text dark:text-white">Email</span>
                   </label>
                   <input
                     type="email"
                     name="user_email"
                     placeholder="email"
-                    className="input input-bordered bg-gray-300"
+                    className="input input-bordered bg-gray-300 dark:text-white  dark:bg-slate-600"
                   />
                 </div>
                 <label className="label">
-                  <span className="label-text ">Message</span>
+                  <span className="label-text dark:text-white">Message</span>
                 </label>
                 <textarea
                   name="message"
-                  className="textarea  bg-gray-300"
+                  className="textarea  bg-gray-300 dark:text-white  dark:bg-slate-600"
                   placeholder="Maessge"
                 ></textarea>
 

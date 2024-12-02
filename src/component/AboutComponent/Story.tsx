@@ -2,11 +2,11 @@ import React from "react";
 
 const Story: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto text-center lg:flex">
         <div>
           <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-          <p className=" text-gray-700 mb-6">
+          <p className=" text-gray-700 dark:bg-gray-900 dark:text-white  mb-6">
             Our Meeting Room Booking System was created to solve the challenges
             we faced in co-working spaces, from double bookings to scheduling
             confusion. Through collaboration with space managers and users, we

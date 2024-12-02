@@ -44,14 +44,14 @@ const UpdateBooking: React.FC<{ id: string }> = ({ id }) => {
             <div className="modal-box ">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button className="btn text-xl mb-3 btn-circle btn-ghost absolute right-2 top-2">
+                <button className="btn text-xl mb-3 btn-circle btn-ghost absolute right-2 top-2 dark:text-white dark:bg-slate-600">
                   ✕
                 </button>
               </form>
               <div className=" ">
                 <div className="">
                   <div className=" bg-center mt-3  ">
-                    <div className=" lg:w-full md:w-2/3 w-full border   bg-base-200   border-slate-900 rounded-2xl  ">
+                    <div className=" lg:w-full md:w-2/3 w-full border dark:text-white dark:bg-slate-800  bg-base-200   border-slate-900 rounded-2xl  ">
                       <h1 className="lg:text-3xl md:text-3xl   lg:ml-8 lg:mt-5 ml-16 mt-5 text-xl ">
                         UPDATE BOOKING
                       </h1>
@@ -61,14 +61,14 @@ const UpdateBooking: React.FC<{ id: string }> = ({ id }) => {
                         <form onSubmit={updateRoom}>
                           <div className="form-control">
                             <label className="label">
-                              <span className="label-text">
+                              <span className="label-text dark:text-white">
                                 {" "}
                                 Approve/Reject Bookings
                               </span>
                             </label>
                             <select
                               name="isConfirmed"
-                              className="select w-full "
+                              className="select w-full dark:text-white dark:bg-slate-600"
                             >
                               <option value="confirmed">Approve</option>
                               <option value="canceled">Reject</option>

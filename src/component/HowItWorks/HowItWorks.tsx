@@ -13,7 +13,7 @@ const HowItWorks: React.FC = () => {
         <h2 className="text-4xl font-bold mb-6">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
-            className="p-6 bg-gray-200 rounded-lg shadow-lg"
+            className="p-6 bg-gray-200 dark:bg-slate-800 dark:text-white rounded-lg shadow-lg"
             data-aos="fade-right"
           >
             <img
@@ -25,7 +25,7 @@ const HowItWorks: React.FC = () => {
             <p>Choose from our list of available meeting rooms.</p>
           </div>
           <div
-            className="p-6 bg-gray-200 rounded-lg shadow-lg"
+            className="p-6 bg-gray-200 dark:bg-slate-800 dark:text-white rounded-lg shadow-lg"
             data-aos="fade-up"
           >
             <img
@@ -37,7 +37,7 @@ const HowItWorks: React.FC = () => {
             <p>Select your preferred date and time for the meeting.</p>
           </div>
           <div
-            className="p-6 bg-gray-200 rounded-lg shadow-lg"
+            className="p-6 bg-gray-200 dark:bg-slate-800 dark:text-white rounded-lg shadow-lg"
             data-aos="fade-left"
           >
             <img

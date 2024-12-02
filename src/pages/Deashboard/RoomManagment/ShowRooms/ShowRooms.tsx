@@ -43,7 +43,7 @@ const ShowRooms = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="bg-base-300">
+            <thead className="bg-base-300 dark:text-white dark:bg-slate-500">
               <tr>
                 <th>Title</th>
                 <th>roomNo</th>
@@ -58,7 +58,7 @@ const ShowRooms = () => {
             {RoomsData?.data?.map((item: TMeetingRoom) => (
               <tbody key={item._id}>
                 {/* row 1 */}
-                <tr className="bg-base-200">
+                <tr className="bg-base-200 dark:text-white dark:bg-slate-600">
                   <td className="w-60">{item.name}</td>
                   <td>{item.roomNo}</td>
                   <td>{item.capacity}</td>

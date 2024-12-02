@@ -7,7 +7,7 @@ import WhyChooseUs from "../../component/WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden ">
       <Section1></Section1>
       <ServiceAdvertisement></ServiceAdvertisement>
       <RoomCards></RoomCards>

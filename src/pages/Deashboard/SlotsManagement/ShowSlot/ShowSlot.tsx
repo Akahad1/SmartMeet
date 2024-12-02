@@ -44,7 +44,7 @@ const ShowSlot = () => {
           <div className="overflow-x-auto" key={item._id}>
             <table className="table">
               {/* head */}
-              <thead>
+              <thead className="dark:text-white">
                 <tr>
                   <th> Room Name</th>
                   <th>Room No</th>
@@ -57,10 +57,10 @@ const ShowSlot = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr className="bg-base-200">
+                <tr className="bg-base-200 dark:text-white dark:bg-slate-600">
                   <td className="w-60">{item.room.name}</td>
                   <td>{item.room.roomNo}</td>
-                  <td>{item.date}</td>
+                  <td>{item.date.split("T")[0]}</td>
                   <td>{item.startTime}</td>
                   <td>{item.endTime}</td>
                   <td>

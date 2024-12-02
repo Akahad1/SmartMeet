@@ -39,7 +39,7 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto border border-gray-500 bg-white p-6 rounded-lg shadow-md mt-16 mb-16">
+    <div className="max-w-md mx-auto border border-gray-500 dark:bg-slate-800 dark:text-white bg-white p-6 rounded-lg shadow-md mt-16 mb-16">
       <h2 className="text-xl font-semibold mb-4">Booking Summary</h2>
       <div className="mb-4">
         <p>
@@ -64,17 +64,17 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
       <div className="mb-4">
         <button
           onClick={() => handlePaymentSelection("Credit Card")}
-          className={`border rounded-lg py-2 px-4 mr-2 ${
+          className={`border rounded-lg py-2 px-4 mr-2 dark:bg-slate-700 dark:text-white${
             paymentMethod === "Credit Card"
               ? "bg-blue-500 text-white"
-              : "bg-gray-200"
+              : "bg-gray-200 "
           }`}
         >
           Credit Card
         </button>
         <button
           onClick={() => handlePaymentSelection("PayPal")}
-          className={`border rounded-lg py-2 px-4 ${
+          className={`border rounded-lg py-2 px-4 dark:bg-slate-700 dark:text-white ${
             paymentMethod === "PayPal"
               ? "bg-blue-500 text-white"
               : "bg-gray-200"
@@ -92,8 +92,8 @@ const BookingSummary: React.FC<{ booking: TBook | null }> = ({ booking }) => {
       </button>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="fixed inset-0 flex items-center justify-center  bg-black bg-opacity-50">
+          <div className="bg-white dark:bg-slate-800 dark:text-white  p-6 rounded-lg shadow-lg">
             <h3 className="text-lg font-semibold mb-2">Booking Confirmation</h3>
             <p className="lg:text-xl">Thank you for your booking!</p>
             <p>

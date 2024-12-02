@@ -46,7 +46,7 @@ const ShowBooking = () => {
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="bg-base-300">
+            <thead className="bg-base-300 dark:text-white dark:bg-slate-600">
               <tr>
                 <th>Room Name</th>
                 <th>User Name</th>
@@ -60,10 +60,10 @@ const ShowBooking = () => {
             {BookingData?.data?.map((item: TBooking) => (
               <tbody key={item._id}>
                 {/* row 1 */}
-                <tr className="bg-base-200">
+                <tr className="bg-base-200 dark:text-white dark:bg-slate-800">
                   <td className="w-60">{item.room?.name}</td>
                   <td>{item.user?.name}</td>
-                  <td>{item?.date}</td>
+                  <td>{item?.date.split("T")[0]}</td>
                   <td>{item.isConfirmed}</td>
 
                   <td>

@@ -1,8 +1,13 @@
+import React from "react";
 import { FormEvent } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useSingUpMutation } from "../../redux/fearutes/auth/authApi";
+import Lottie from "react-lottie-player";
+
+// Import the Lottie JSON file
+import signupAnimation from "../../../public/Imgage/Animation - 1733061643364.json";
 
 const Signup = () => {
   const [addSingUp] = useSingUpMutation();
@@ -43,19 +48,20 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row ">
-      {/* Left Image Section */}
+      {/* Left Animation Section */}
       <div className="hidden lg:flex lg:w-1/2 items-center justify-center ">
-        <img
-          src="https://lottie.host/embed/08d655c0-92c4-4237-bf56-0b600827aeba/hgwzpmUz7z.lottie"
-          alt="Signup Illustration"
-          className="h-full w-full object-cover"
+        <Lottie
+          loop
+          play
+          animationData={signupAnimation} // Use imported JSON
+          style={{ width: "100%", height: "100%" }}
         />
       </div>
 
       {/* Right Form Section */}
       <div className="flex items-center justify-center w-full lg:w-1/2 p-6">
-        <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+        <div className="w-full max-w-lg  dark:bg-slate-800  bg-white shadow-lg rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white  text-center mb-6">
             Create Your Account
           </h2>
           <form onSubmit={singUpinPassword}>
@@ -63,7 +69,7 @@ const Signup = () => {
               <div>
                 <label
                   htmlFor="fullname"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-sm font-medium text-gray-600 dark:text-white "
                 >
                   Full Name
                 </label>
@@ -71,7 +77,7 @@ const Signup = () => {
                   type="text"
                   name="fullname"
                   id="fullname"
-                  className="input input-bordered w-full mt-1"
+                  className="input input-bordered w-full mt-1 dark:text-white dark:bg-slate-600"
                   placeholder="John Doe"
                   required
                 />
@@ -79,7 +85,7 @@ const Signup = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-sm font-medium text-gray-600 dark:text-white "
                 >
                   Email
                 </label>
@@ -87,7 +93,7 @@ const Signup = () => {
                   type="email"
                   name="email"
                   id="email"
-                  className="input input-bordered w-full mt-1"
+                  className="input input-bordered w-full mt-1 dark:text-white dark:bg-slate-600"
                   placeholder="example@mail.com"
                   required
                 />
@@ -95,7 +101,7 @@ const Signup = () => {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-sm font-medium text-gray-600 dark:text-white "
                 >
                   Phone Number
                 </label>
@@ -103,7 +109,7 @@ const Signup = () => {
                   type="tel"
                   name="phone"
                   id="phone"
-                  className="input input-bordered w-full mt-1"
+                  className="input input-bordered w-full mt-1 dark:text-white dark:bg-slate-600"
                   placeholder="+123456789"
                   required
                 />
@@ -111,7 +117,7 @@ const Signup = () => {
               <div>
                 <label
                   htmlFor="address"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-sm font-medium text-gray-600 dark:text-white"
                 >
                   Address
                 </label>
@@ -119,7 +125,7 @@ const Signup = () => {
                   type="text"
                   name="address"
                   id="address"
-                  className="input input-bordered w-full mt-1"
+                  className="input input-bordered w-full mt-1 dark:text-white dark:bg-slate-600"
                   placeholder="123 Main Street"
                   required
                 />
@@ -127,7 +133,7 @@ const Signup = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-sm font-medium text-gray-600 dark:text-white"
                 >
                   Password
                 </label>
@@ -135,7 +141,7 @@ const Signup = () => {
                   type="password"
                   name="password"
                   id="password"
-                  className="input input-bordered w-full mt-1"
+                  className="input input-bordered w-full mt-1 dark:text-white dark:bg-slate-600"
                   placeholder="••••••••"
                   required
                 />
@@ -147,16 +153,13 @@ const Signup = () => {
             </button>
 
             <div className="flex items-center justify-center mt-4">
-              <button
-                type="button"
-                className="btn bg-red-500 text-white hover:bg-red-600 flex items-center px-4 py-2 rounded-lg"
-              >
+              <button type="button" className="btn btn-primary w-full mt-6">
                 <FaGoogle className="mr-2" />
                 Continue with Google
               </button>
             </div>
 
-            <p className="text-sm text-center mt-4 text-gray-600">
+            <p className="text-sm text-center mt-4 text-gray-600 dark:text-white ">
               Already have an account?{" "}
               <Link to="/login" className="text-blue-500 hover:underline">
                 Log in

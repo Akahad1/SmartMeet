@@ -15,14 +15,14 @@ const MyBooking = () => {
 
       <div>
         {bookingData?.data?.length === 0 ? (
-          <p className="text-center lg:text-xl ">
+          <p className="text-center lg:text-xl dark:text-white ">
             You have no slots to booking !!
           </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
-              <thead className="bg-base-300">
+              <thead className="bg-base-300 dark:text-white dark:bg-slate-600">
                 <tr>
                   <th>Room Name</th>
                   <th>Date</th>
@@ -34,7 +34,7 @@ const MyBooking = () => {
               {bookingData?.data?.map((item: TBooking) => (
                 <tbody key={item._id}>
                   {/* row 1 */}
-                  <tr className="bg-base-200">
+                  <tr className="bg-base-200 dark:text-white dark:bg-slate-800">
                     <td className="w-60">{item?.room?.name}</td>
                     <td>{item.date}</td>
                     <td>{item.isConfirmed}</td>
