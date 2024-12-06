@@ -8,6 +8,7 @@ import {
   useCurrentToken,
 } from "../../redux/fearutes/auth/authSlice";
 import { useEffect, useState } from "react";
+import { FaMeetup } from "react-icons/fa";
 
 const Navber = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -155,11 +156,15 @@ const Navber = () => {
             </ul>
           </div>
 
-          <div className="  lg:m-5 hidden lg:flex">
-            <div className="avatar">
-              <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-                <img src={logo} />
-              </div>
+          <div className="  lg:m-5 lg:ml-20 hidden lg:flex">
+            <div className=" lg:flex">
+              <FaMeetup className="w-14 h-12 mr-2" />
+              <p className="text-2xl mt-2 lg:font-serif ">
+                <span className="text-blue-700">Smart </span>Meet
+              </p>
+              {/* <div className="ring-primary ring-offset-base-100 w-16 rounded-full ring ring-offset-2">
+                <img src={logo} className="rounded-full" />
+              </div> */}
             </div>
           </div>
         </div>

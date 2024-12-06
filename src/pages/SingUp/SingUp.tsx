@@ -1,4 +1,3 @@
-import React from "react";
 import { FormEvent } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";

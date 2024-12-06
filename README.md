@@ -66,4 +66,4 @@ By supporting these roles, Smart Meet simplifies the booking process for users a
 ## Link
 
 - **Client Site**: https://smart-meet-nine.vercel.app/
-- **Server Site**: http://localhost:5000
+- **Server Site**: https://assinment-3-one.vercel.app
