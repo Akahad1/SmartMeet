@@ -1,109 +1,73 @@
-// src/components/WhyChooseUs.tsx
-import React, { useEffect } from "react";
-import AOS from "aos";
+import React from "react";
 import "aos/dist/aos.css";
+import AOS from "aos";
 
-const WhyChooseUs: React.FC = () => {
-  useEffect(() => {
+const WhyChooseMe = () => {
+  React.useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  const features = [
+    {
+      title: "User-Friendly Interface",
+      description:
+        "Easily navigate and book meeting rooms with intuitive design.",
+      icon: "📱",
+    },
+    {
+      title: "Reliability",
+      description:
+        "Real-time availability updates and dependable booking system.",
+      icon: "⏰",
+    },
+    {
+      title: "Flexibility",
+      description: "Search, filter, and sort rooms to match your exact needs.",
+      icon: "🔍",
+    },
+    {
+      title: "Admin Control",
+      description: "Efficiently manage rooms, bookings, and user data.",
+      icon: "🛠️",
+    },
+  ];
+
   return (
-    <section className="py-16 bg-gray-300 dark:bg-slate-800 dark:text-white">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">Why Choose Smart Meet?</h2>
-        <p className="text-lg mb-10">
-          Simplify your meeting room booking process with our powerful,
-          user-friendly platform.
+    <section className="bg-base-300 dark:text-white dark:bg-slate-900  py-12">
+      <div className="container mx-auto px-6 text-center">
+        <h2
+          className="text-3xl font-bold text-gray-800 dark:text-white  mb-6"
+          data-aos="fade-up"
+        >
+          Why Choose Smart Meet?
+        </h2>
+        <p className="text-gray-600 dark:text-white mb-8" data-aos="fade-up">
+          Discover the features that make our meeting room booking system the
+          best choice.
         </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Feature 1 */}
-          <div
-            className="p-6 rounded-lg bg-base-200 lg:ml-5 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              Effortless Room Booking
-            </h3>
-            <p>
-              Reserve meeting rooms in just a few clicks with our intuitive
-              interface and real-time availability updates.
-            </p>
-          </div>
-
-          {/* Feature 2 */}
-          <div
-            className="p-6 rounded-lg bg-base-200 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              Advanced Search & Filters
-            </h3>
-            <p>
-              Find the perfect room by filtering by capacity, price, and
-              amenities, and sorting by cost or availability.
-            </p>
-          </div>
-
-          {/* Feature 3 */}
-          <div
-            className="p-6 rounded-lg bg-base-200 lg:mr-5 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <h3 className="text-2xl font-semibold mb-4">Admin Control Panel</h3>
-            <p>
-              Manage rooms, bookings, and user activity with powerful tools
-              designed for administrators.
-            </p>
-          </div>
-
-          {/* Feature 4 */}
-          <div
-            className="p-6 lg:ml-5 rounded-lg bg-base-200 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <h3 className="text-2xl font-semibold mb-4">Secure Payments</h3>
-            <p>
-              Enjoy peace of mind with encrypted transactions and a reliable
-              payment gateway.
-            </p>
-          </div>
-
-          {/* Feature 5 */}
-          <div
-            className="p-6 rounded-lg bg-base-200 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="800"
-          >
-            <h3 className="text-2xl font-semibold mb-4">Real-Time Updates</h3>
-            <p>
-              Stay informed with instant notifications about bookings,
-              cancellations, and room availability.
-            </p>
-          </div>
-
-          {/* Feature 6 */}
-          <div
-            className="p-6 rounded-lg lg:mr-5 bg-base-200 dark:bg-gray-700 dark:text-white shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="1000"
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              User-Friendly Interface
-            </h3>
-            <p>
-              Navigate seamlessly with a clean design tailored for both users
-              and administrators.
-            </p>
-          </div>
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          data-aos="fade-up"
+        >
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white dark:text-white dark:bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              data-aos="zoom-in"
+            >
+              <div className="text-4xl mb-4 ">{feature.icon}</div>
+              <h3 className="text-xl font-semibold dark:text-white text-gray-800 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-white">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default WhyChooseUs;
+export default WhyChooseMe;
