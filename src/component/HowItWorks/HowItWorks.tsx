@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { FaRegCalendarAlt, FaSearch, FaCheckCircle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";

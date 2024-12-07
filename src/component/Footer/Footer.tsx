@@ -4,7 +4,6 @@ import {
   FaInstagram,
   FaLinkedin,
   FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 
