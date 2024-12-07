@@ -24,7 +24,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 2 */}
-        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-8 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 3 */}
-        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 dark:bg-slate-800 dark:text-white w-72 lg:ml-14 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const ServiceAdvertisement = () => {
           </div>
         </div>
         {/* 4 */}
-        <div className="card bg-base-300 w-72 dark:bg-slate-800 dark:text-white  lg:ml-10 shadow-xl lg:mb-0 md:mb-9 mb-8">
+        <div className="card bg-base-300 w-72 dark:bg-slate-800 dark:text-white  lg:ml-14 shadow-xl lg:mb-0 md:mb-9 mb-8">
           <div className="card-body">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../../../public/Imgage/Black White Yellow Simple Initial Name Logo.png";
 import { veryfiyToken } from "../../utils/veryfiyToken";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
@@ -273,7 +272,7 @@ const Navber = () => {
           )}
           <div className="flex">
             <div>
-              <label className="inline-flex items-center cursor-pointer lg:mt-0 mt-14 mr-2">
+              <label className="inline-flex items-center cursor-pointer lg:mt-0 mt-6 mr-2">
                 {/* <span className="mr-2 text-gray-800 dark:text-gray-200">
                   Light Mode
                 </span> */}
@@ -288,10 +287,15 @@ const Navber = () => {
                 </span> */}
               </label>
             </div>
-            <div className="avatar  lg:m-5 flex lg:hidden m-3">
-              <div className="w-24 rounded-3xl">
-                {" "}
-                <img src={logo} />
+            <div className="  lg:m-5 flex lg:hidden ">
+              <div className=" ">
+                <FaMeetup className="w-14 h-12 mr-2 mt-3 ml-3 mb-2" />
+                {/* <p className="text-2xl mt-2 lg:font-serif ">
+                  <span className="text-blue-700">Smart </span>Meet
+                </p> */}
+                {/* <div className="ring-primary ring-offset-base-100 w-16 rounded-full ring ring-offset-2">
+                <img src={logo} className="rounded-full" />
+              </div> */}
               </div>
             </div>
           </div>

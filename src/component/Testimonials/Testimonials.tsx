@@ -16,7 +16,9 @@ const Testimonials: React.FC = () => {
                 alt="Customer 1"
               />
               <h3 className="text-xl font-semibold">John Doe</h3>
-              <p className="text-sm text-gray-500">CEO, ABC Corp</p>
+              <p className="text-sm text-gray-500 dark:text-white">
+                CEO, ABC Corp
+              </p>
               <p className="mt-4">
                 The booking process was seamless, and the rooms were perfect for
                 our team meetings!
@@ -43,7 +45,9 @@ const Testimonials: React.FC = () => {
                 alt="Customer 2"
               />
               <h3 className="text-xl font-semibold">Jane Smith</h3>
-              <p className="text-sm text-gray-500">Manager, XYZ Ltd</p>
+              <p className="text-sm text-gray-500 dark:text-white">
+                Manager, XYZ Ltd
+              </p>
               <p className="mt-4">
                 A wonderful experience from booking to using the meeting room!
               </p>
@@ -70,7 +74,9 @@ const Testimonials: React.FC = () => {
                 alt="Customer 3"
               />
               <h3 className="text-xl font-semibold">Michael Brown</h3>
-              <p className="text-sm text-gray-500">Freelancer</p>
+              <p className="text-sm text-gray-500 dark:text-white">
+                Freelancer
+              </p>
               <p className="mt-4">
                 Easy to book and the room was fully equipped for my meeting
                 needs!
@@ -98,7 +104,9 @@ const Testimonials: React.FC = () => {
                 alt="Customer 4"
               />
               <h3 className="text-xl font-semibold"> Mrs Michael Brown</h3>
-              <p className="text-sm text-gray-500">Freelancer</p>
+              <p className="text-sm text-gray-500 dark:text-white">
+                Freelancer
+              </p>
               <p className="mt-4">
                 Easy to book and the room was fully equipped for my meeting
                 needs!
