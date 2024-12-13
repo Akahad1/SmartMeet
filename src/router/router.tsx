@@ -18,11 +18,13 @@ import BookingForm from "../pages/BookingForm/BookingForm";
 import Checkout from "../pages/Checkout/Checkout";
 import MyBooking from "../pages/MyBooking/MyBooking";
 import ProtectorRoute from "../component/layout/ProtectorRoute/ProtectorRoute";
+import Layout from "../component/layout/Layout/Layout";
+import DashboardLayout from "../component/layout/DashboardLayout/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <Layout></Layout>,
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/aboutus", element: <About></About> },
@@ -100,6 +102,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
+  { path: "/dashboard", element: <DashboardLayout></DashboardLayout> },
   { path: "*", element: <NotFound></NotFound> },
 ]);
