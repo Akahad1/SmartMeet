@@ -20,6 +20,7 @@ import MyBooking from "../pages/MyBooking/MyBooking";
 import ProtectorRoute from "../component/layout/ProtectorRoute/ProtectorRoute";
 import Layout from "../component/layout/Layout/Layout";
 import DashboardLayout from "../component/layout/DashboardLayout/DashboardLayout";
+import AdminDashboard from "../component/AdminDashboard/AdminDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -32,46 +33,7 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Singup></Singup> },
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/meetingRooms", element: <MeetingRooms></MeetingRooms> },
-      {
-        path: "/createRoom",
-        element: (
-          <ProtectorRoute role="admin">
-            <CreateRoom></CreateRoom>
-          </ProtectorRoute>
-        ),
-      },
-      {
-        path: "/showRooms",
-        element: (
-          <ProtectorRoute role="admin">
-            <ShowRooms></ShowRooms>
-          </ProtectorRoute>
-        ),
-      },
-      {
-        path: "/createSlot",
-        element: (
-          <ProtectorRoute role="admin">
-            <CreateSlot></CreateSlot>
-          </ProtectorRoute>
-        ),
-      },
-      {
-        path: "/showSlotes",
-        element: (
-          <ProtectorRoute role="admin">
-            <ShowSlot></ShowSlot>
-          </ProtectorRoute>
-        ),
-      },
-      {
-        path: "/bookingRooms",
-        element: (
-          <ProtectorRoute role="admin">
-            <ShowBooking></ShowBooking>
-          </ProtectorRoute>
-        ),
-      },
+
       {
         path: "/roomDetails/:id",
         element: <RoomDetails></RoomDetails>,
@@ -92,8 +54,62 @@ export const router = createBrowserRouter([
           </ProtectorRoute>
         ),
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
       {
-        path: "/myBookings",
+        path: "/dashboard/admin",
+        element: (
+          <ProtectorRoute role="admin">
+            <AdminDashboard></AdminDashboard>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/createRoom",
+        element: (
+          <ProtectorRoute role="admin">
+            <CreateRoom></CreateRoom>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/showRooms",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowRooms></ShowRooms>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/createSlot",
+        element: (
+          <ProtectorRoute role="admin">
+            <CreateSlot></CreateSlot>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/showSlotes",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowSlot></ShowSlot>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/bookingRooms",
+        element: (
+          <ProtectorRoute role="admin">
+            <ShowBooking></ShowBooking>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myBookings",
         element: (
           <ProtectorRoute role="user">
             <MyBooking></MyBooking>
@@ -102,6 +118,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  { path: "/dashboard", element: <DashboardLayout></DashboardLayout> },
   { path: "*", element: <NotFound></NotFound> },
 ]);

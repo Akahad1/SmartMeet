@@ -104,6 +104,15 @@ const adminManagmentApi = baseApi.injectEndpoints({
       },
       providesTags: ["booking"],
     }),
+    getAllUser: builder.query({
+      query: () => {
+        return {
+          url: "/user",
+          method: "GET",
+        };
+      },
+      providesTags: ["booking"],
+    }),
     updateBooking: builder.mutation({
       query: (data) => {
         return {
@@ -128,4 +137,5 @@ export const {
   useGetAllBookingQuery,
   useUpdateBookingMutation,
   useDeleteBookingMutation,
+  useGetAllUserQuery,
 } = adminManagmentApi;

@@ -8,8 +8,13 @@ import {
   FaDollarSign,
   FaCog,
   FaBars,
+  FaMeetup,
+  FaChevronUp,
+  FaAngleDown,
 } from "react-icons/fa";
 import DashboardNavbar from "../../pages/Deashboard/DashboardNavber/DashboardNavber";
+import { Link, Outlet } from "react-router-dom";
+import { CiLock } from "react-icons/ci";
 
 const ResponsiveSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,31 +35,37 @@ const ResponsiveSidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:w-64`}
       >
-        <div className="p-4 text-xl font-bold text-green-600 flex items-center">
-          <FaHome className="mr-2" /> Nest Mart & Grocery
+        <div className="p-4 text-xl flex items-center lg:ml-5">
+          <div className=" lg:flex">
+            <FaMeetup className="w-14 h-12 mr-2" />
+            <p className="text-2xl mt-2 lg:font-serif ">
+              <span className="text-blue-700">Smart </span>Meet
+            </p>
+          </div>
         </div>
         <nav className="mt-4">
-          <ul className="lg:ml-10">
+          <ul className="lg:ml-6">
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaHome className="mr-2 " /> Dashboard
+              <FaHome className="mr-2 h-5 w-7" /> Dashboard
             </li>
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaBox className="mr-2" /> Products
+              <FaBox className="mr-2 h-5 w-7" /> Products
             </li>
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaShoppingCart className="mr-2" /> Orders
+              <FaShoppingCart className="mr-2 h-5 w-7" /> Orders
             </li>
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaUsers className="mr-2" /> Sellers
+              <FaUsers className="mr-2 h-5 w-7" /> Sellers
             </li>
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaPlus className="mr-2" /> Add Product
+              <FaPlus className="mr-2 h-5 w-7" /> Add Product
             </li>
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaDollarSign className="mr-2" /> Transactions
+              <FaDollarSign className="mr-2 h-5 w-7" /> Transactions
             </li>
+
             <li className="p-4 hover:bg-gray-100 flex items-center">
-              <FaCog className="mr-2" /> Settings
+              <FaCog className="mr-2 h-5 w-7" /> Settings
             </li>
           </ul>
         </nav>
@@ -71,9 +82,10 @@ const ResponsiveSidebar = () => {
       {/* Main Content */}
       <div className="ml-0 md:ml-64 transition-all duration-300 ">
         <DashboardNavbar></DashboardNavbar>
-        <div className="bg-[#F8F9FA] min-h-screen">
+        <div className="bg-[#F8F9FA] min-h-screen p-4 lg:p-8">
           <h1 className="text-2xl font-bold">Main Content</h1>
-          <p>Resize the screen to see the responsive sidebar in action.</p>
+
+          <Outlet></Outlet>
         </div>
       </div>
     </div>
