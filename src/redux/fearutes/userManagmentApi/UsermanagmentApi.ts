@@ -13,6 +13,17 @@ const userManagmentApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["booking"],
     }),
+    updateProfile: builder.mutation({
+      query: (data) => {
+        console.log("inner", data);
+        return {
+          url: `/user/${data.id}`,
+          method: "PUT",
+          body: data.data,
+        };
+      },
+      invalidatesTags: ["user"],
+    }),
 
     getRooms: builder.query({
       query: (id) => {
@@ -30,7 +41,7 @@ const userManagmentApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
-      //   providesTags: [""],
+      providesTags: ["user"],
     }),
     getQuerySlote: builder.query({
       query: (args) => {
@@ -76,4 +87,5 @@ export const {
   useGetQuerySloteQuery,
   useGetMyBookingQuery,
   useCreateBookingMutation,
+  useUpdateProfileMutation,
 } = userManagmentApi;

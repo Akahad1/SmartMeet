@@ -11,7 +11,7 @@ const MyBooking = () => {
   console.log(bookingData);
   return (
     <div className="min-h-screen">
-      <h1 className="text-xl mt-10 mb-6">Hello, MyBooking!</h1>
+      <h1 className="text-xl mt-10 mb-6 dark:text-white">Hello, MyBooking!</h1>
 
       <div>
         {bookingData?.data?.length === 0 ? (

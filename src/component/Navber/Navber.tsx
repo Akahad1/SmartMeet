@@ -74,7 +74,7 @@ const Navber = () => {
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
                 <Link to="/contactUs">Contact Us</Link>
               </button>
-              {(user as TUser)?.role === "admin" ? (
+              {(user as unknown as TUser)?.role === "admin" ? (
                 <>
                   <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
                     <Link to="/dashboard/admin">Dashboard</Link>
@@ -92,10 +92,10 @@ const Navber = () => {
               ) : (
                 <></>
               )}
-              {(user as TUser)?.role === "user" ? (
+              {(user as unknown as TUser)?.role === "user" ? (
                 <>
                   <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-                    <Link to="/MyBookings">My Bookings</Link>
+                    <Link to="/dashboard/user">Dashboard</Link>
                   </button>
                   <button className="lg:hidden mt-1 text-lg ml-3">
                     <p
@@ -146,16 +146,16 @@ const Navber = () => {
             <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
               <Link to="/register">Register</Link>
             </button>
-            {(user as TUser)?.role === "admin" ? (
+            {(user as unknown as TUser)?.role === "admin" ? (
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
                 <Link to="/dashboard/admin">Dashboard</Link>
               </button>
             ) : (
               <></>
             )}
-            {(user as TUser)?.role === "user" ? (
+            {(user as unknown as TUser)?.role === "user" ? (
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg  ">
-                <Link to="/MyBookings">My Bookings</Link>
+                <Link to="/dashboard/user">Dashboard</Link>
               </button>
             ) : (
               <></>
@@ -163,7 +163,7 @@ const Navber = () => {
           </ul>
         </div>
         <div className="navbar-end ">
-          {(user as TUser)?.role == "admin" ? (
+          {(user as unknown as TUser)?.role == "admin" ? (
             <>
               <button className="hidden lg:flex text-xl">
                 <p
@@ -177,7 +177,7 @@ const Navber = () => {
           ) : (
             <></>
           )}
-          {(user as TUser)?.role == "user" ? (
+          {(user as unknown as TUser)?.role == "user" ? (
             <>
               <button className="hidden lg:flex text-xl">
                 <p

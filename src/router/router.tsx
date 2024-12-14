@@ -21,6 +21,8 @@ import ProtectorRoute from "../component/layout/ProtectorRoute/ProtectorRoute";
 import Layout from "../component/layout/Layout/Layout";
 import DashboardLayout from "../component/layout/DashboardLayout/DashboardLayout";
 import AdminDashboard from "../component/AdminDashboard/AdminDashboard";
+import UserDashboard from "../component/UserDashboard/UserDashboard";
+import UserUpdate from "../component/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +71,22 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/user",
+        element: (
+          <ProtectorRoute role="user">
+            <UserDashboard></UserDashboard>
+          </ProtectorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/profile",
+        element: (
+          <ProtectorRoute role="user">
+            <UserUpdate></UserUpdate>
+          </ProtectorRoute>
+        ),
+      },
+      {
         path: "/dashboard/createRoom",
         element: (
           <ProtectorRoute role="admin">
@@ -109,7 +127,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/myBookings",
+        path: "/dashboard/mybooking",
         element: (
           <ProtectorRoute role="user">
             <MyBooking></MyBooking>

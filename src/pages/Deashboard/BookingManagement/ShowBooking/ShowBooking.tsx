@@ -38,7 +38,7 @@ const ShowBooking = () => {
   return (
     <div className="min-h-screen">
       <div>
-        <p className="lg:text-2xl text-center mt-10 mb-10 text-xl">
+        <p className="lg:text-2xl dark:text-white text-center mt-10 mb-10 text-xl">
           ALL Booking
         </p>
       </div>

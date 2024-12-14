@@ -55,15 +55,15 @@ const FullscreenToggle: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center  dark:bg-gray-900 transition-colors duration-500">
+    <div className="flex items-center justify-center  dark:text-white transition-colors duration-500">
       <button
         onClick={toggleFullscreen}
-        className="p-2 rounded-full  shadow-md hover:bg-gray-200 transition-colors"
+        className="p-2 rounded-full  shadow-md  transition-colors"
       >
         {isFullscreen ? (
-          <XMarkIcon className="w-6 h-6 text-gray-600" />
+          <XMarkIcon className="w-6 h-6 dark:text-white text-gray-600" />
         ) : (
-          <ArrowsPointingOutIcon className="w-6 h-6 text-gray-600" />
+          <ArrowsPointingOutIcon className="w-6 h-6  dark:text-white text-gray-600" />
         )}
       </button>
     </div>

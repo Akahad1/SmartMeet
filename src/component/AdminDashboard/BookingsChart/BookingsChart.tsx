@@ -76,9 +76,9 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-4 space-y-8">
-      <div className="bg-white p-4 rounded shadow">
-        <h2 className="text-xl font-semibold mb-4">Monthly Bookings</h2>
+    <div className="p-4 space-y-8 ">
+      <div className="bg-white p-4 rounded shadow dark:bg-slate-800 dark:text-white  ">
+        {/* <h2 className="text-xl font-semibold mb-4">Monthly Bookings</h2> */}
         <Bar
           data={chartData}
           options={{
@@ -92,6 +92,7 @@ const Dashboard = () => {
               x: {
                 title: {
                   display: true,
+
                   text: "Month",
                 },
               },

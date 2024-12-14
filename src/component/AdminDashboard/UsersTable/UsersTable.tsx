@@ -14,9 +14,9 @@ const UsersTable = ({ users }: { users: User }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto w-full border-collapse border border-gray-300">
+      <table className="table-auto w-full   border-collapse border border-gray-300">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-gray-100  dark:bg-slate-800 dark:text-white">
             <th className="border border-gray-300 p-2">Name</th>
             <th className="border border-gray-300 p-2">Email</th>
             <th className="border border-gray-300 p-2">Role</th>

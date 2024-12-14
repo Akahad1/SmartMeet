@@ -37,7 +37,9 @@ const ShowSlot = () => {
   return (
     <div>
       <div>
-        <p className="lg:text-2xl text-center mt-10 mb-10 text-xl">ALL Slote</p>
+        <p className="lg:text-2xl text-center dark:text-white mt-10 mb-10 text-xl">
+          ALL Slote
+        </p>
       </div>
       <div className="mb-10">
         {SlotData?.data?.map((item: TSlote) => (
