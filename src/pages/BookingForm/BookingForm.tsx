@@ -78,9 +78,9 @@ const BookingForm = () => {
           />
         </div>
         <div>
-          {SlotData === undefined ? (
+          {SlotData?.data.leanth === 0 ? (
             <p className="mt-5 ml-3 mb-3 text-red-300">
-              Select your preferred date
+              Do No ableable This Slot
             </p>
           ) : (
             <div className="overflow-x-auto mt-10">
@@ -102,7 +102,8 @@ const BookingForm = () => {
                     {/* row 1 */}
                     <tr className="bg-base-200 dark:bg-slate-800 dark:text-white">
                       <td className="w-60">{item.room.name}</td>
-                      <td>{item.date}</td>
+                      <td>{new Date(item.date).toLocaleDateString()}</td>
+
                       <td>{item.startTime}</td>
                       <td>{item.endTime}</td>
                       <td>{item.room.pricePerSlot}</td>
@@ -171,7 +172,6 @@ const BookingForm = () => {
                 placeholder="number"
                 className="input input-bordered dark:text-white dark:bg-slate-600"
                 defaultValue={phone}
-                readOnly
                 required
               />
             </div>
@@ -186,7 +186,6 @@ const BookingForm = () => {
                 placeholder="address"
                 className="input input-bordered dark:text-white dark:bg-slate-600"
                 defaultValue={address}
-                readOnly
                 required
               />
             </div>

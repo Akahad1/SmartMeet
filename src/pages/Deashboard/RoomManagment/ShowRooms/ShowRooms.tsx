@@ -37,7 +37,9 @@ const ShowRooms = () => {
   return (
     <div>
       <div>
-        <p className="lg:text-2xl text-center mt-10 mb-10 text-xl">ALL ROOMS</p>
+        <p className="lg:text-2xl dark:text-white text-center mt-10 mb-10 text-xl">
+          ALL ROOMS
+        </p>
       </div>
       <div className="mb-10">
         <div className="overflow-x-auto">

@@ -6,30 +6,10 @@ import {
   TUser,
   useCurrentToken,
 } from "../../redux/fearutes/auth/authSlice";
-import { useEffect, useState } from "react";
 import { FaMeetup } from "react-icons/fa";
+import DarkModeToggle from "../Mode/Mode";
 
 const Navber = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check if the user previously selected dark mode in the local storage
-    const savedMode = localStorage.getItem("darkMode");
-    if (savedMode) {
-      setDarkMode(savedMode === "true");
-    }
-  }, []);
-
-  useEffect(() => {
-    // Apply the class to the body to switch between light and dark modes
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
-    }
-  }, [darkMode]);
   const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
   let user;
@@ -194,18 +174,7 @@ const Navber = () => {
           <div className="flex">
             <div>
               <label className="inline-flex items-center cursor-pointer lg:mt-0 mt-6 mr-2">
-                {/* <span className="mr-2 text-gray-800 dark:text-gray-200">
-                  Light Mode
-                </span> */}
-                <input
-                  type="checkbox"
-                  className="toggle toggle-accent"
-                  checked={darkMode}
-                  onChange={() => setDarkMode(!darkMode)}
-                />
-                {/* <span className="ml-2 text-gray-800 dark:text-gray-200">
-                  Dark Mode
-                </span> */}
+                <DarkModeToggle></DarkModeToggle>
               </label>
             </div>
             <div className="  lg:m-5 flex lg:hidden ">

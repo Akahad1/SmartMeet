@@ -2,11 +2,7 @@ import { useState } from "react";
 import {
   FaHome,
   FaBox,
-  FaShoppingCart,
-  FaUsers,
   FaPlus,
-  FaDollarSign,
-  FaCog,
   FaBars,
   FaMeetup,
   FaChevronUp,
@@ -19,7 +15,7 @@ import { Link, Outlet } from "react-router-dom";
 import DashboardNavbar from "../../../pages/Deashboard/DashboardNavber/DashboardNavber";
 
 import { FaBook } from "react-icons/fa6";
-import { useAppDispatch, useAppSelector } from "../../../redux/hook";
+import { useAppSelector } from "../../../redux/hook";
 import { useCurrentToken } from "../../../redux/fearutes/auth/authSlice";
 import { veryfiyToken } from "../../../utils/veryfiyToken";
 
@@ -46,7 +42,7 @@ const DashboardLayout = () => {
     setisBooking(!isBooking);
   };
   const token = useAppSelector(useCurrentToken);
-  const dispatch = useAppDispatch();
+
   let user;
   if (token) {
     user = veryfiyToken(token);
@@ -90,11 +86,19 @@ const DashboardLayout = () => {
                     <FaHome className="mr-2 h-5 w-7" /> Dashboard
                   </li>
                 </Link>
+                <Link to="/dashboard/profile">
+                  <li
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="p-4 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center"
+                  >
+                    <FaPlus className="mr-2 h-5 w-7" /> Profile
+                  </li>
+                </Link>
                 {/* 1 */}
                 <div className="">
                   <p
                     onClick={toggleRooms}
-                    className="cursor-pointer block dark:hover:bg-slate-700   hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block dark:hover:bg-slate-700   px-3 py-2 rounded-md"
                   >
                     <FaBox size={20} className="inline mr-2 ml-2  " />
                     Rooms
@@ -115,7 +119,7 @@ const DashboardLayout = () => {
                 
                   block   px-3 py-2 rounded-md"
                   rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Create Room
                       </li>
@@ -138,7 +142,7 @@ const DashboardLayout = () => {
                 <div className="">
                   <p
                     onClick={toggleSlote}
-                    className="cursor-pointer block  dark:hover:bg-slate-700  hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block  dark:hover:bg-slate-700   px-3 py-2 rounded-md"
                   >
                     <FaSplotch size={20} className="inline mr-2 ml-2" />
                     Slots
@@ -159,19 +163,19 @@ const DashboardLayout = () => {
                 
                   block   px-3 py-2 rounded-md"
                   rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Create Slote
                       </li>
                     </Link>
-                    <Link to="/dashboard/showRooms">
+                    <Link to="/dashboard/showSlotes">
                       <li
                         onClick={() => setIsOpen(!isOpen)}
                         className={`cursor-pointer 
                
                    block   p rounded-md
                      px-3 py-2 rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Show Slote
                       </li>
@@ -182,7 +186,7 @@ const DashboardLayout = () => {
                 <div className="">
                   <p
                     onClick={toggleBooking}
-                    className="cursor-pointer block dark:hover:bg-slate-700   hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block dark:hover:bg-slate-700   px-3 py-2 rounded-md"
                   >
                     <FaBook size={20} className="inline mr-2 ml-2" />
                     Booking
@@ -205,7 +209,7 @@ const DashboardLayout = () => {
                 
                   block   px-3 py-2 rounded-md"
                   rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Show Booking
                       </li>
@@ -221,7 +225,7 @@ const DashboardLayout = () => {
                 <div className="">
                   <p
                     onClick={toggleAuthorization}
-                    className="cursor-pointer block dark:hover:bg-slate-700  hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block dark:hover:bg-slate-700   px-3 py-2 rounded-md"
                   >
                     <FaLock size={20} className="inline mr-2 ml-2" />
                     Authorization
@@ -243,7 +247,7 @@ const DashboardLayout = () => {
                 
                   block   px-3 py-2 rounded-md"
                   rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Sing Up
                       </li>
@@ -254,7 +258,7 @@ const DashboardLayout = () => {
                
                    block   p rounded-md
                      px-3 py-2 rounded-md"
-               hover:text-blue-700`}
+               `}
                       >
                         Sing In
                       </li>
@@ -280,7 +284,7 @@ const DashboardLayout = () => {
                 <div className="">
                   <p
                     onClick={toggleBooking}
-                    className="cursor-pointer block dark:hover:bg-slate-700   hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block dark:hover:bg-slate-700    px-3 py-2 rounded-md"
                   >
                     <FaBook size={20} className="inline mr-2 ml-2" />
                     Booking
@@ -322,7 +326,7 @@ const DashboardLayout = () => {
                 <div className="">
                   <p
                     onClick={toggleAuthorization}
-                    className="cursor-pointer block dark:hover:bg-slate-700  hover:text-blue-700 px-3 py-2 rounded-md"
+                    className="cursor-pointer block dark:hover:bg-slate-700   px-3 py-2 rounded-md"
                   >
                     <FaLock size={20} className="inline mr-2 ml-2" />
                     Authorization
@@ -367,9 +371,9 @@ const DashboardLayout = () => {
               <></>
             )}
 
-            <li className="p-4 dark:hover:bg-slate-700  hover:bg-gray-100 flex items-center">
+            {/* <li className="p-4 dark:hover:bg-slate-700  hover:bg-gray-100 flex items-center">
               <FaCog className="mr-2 h-5 w-7" /> Settings
-            </li>
+            </li> */}
           </ul>
         </nav>
       </aside>

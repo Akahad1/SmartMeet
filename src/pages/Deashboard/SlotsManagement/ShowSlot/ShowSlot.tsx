@@ -60,11 +60,11 @@ const ShowSlot = () => {
               <tbody>
                 {/* row 1 */}
                 <tr className="bg-base-200 dark:text-white dark:bg-slate-600">
-                  <td className="w-60">{item.room.name}</td>
-                  <td>{item.room.roomNo}</td>
-                  <td>{item.date.split("T")[0]}</td>
-                  <td>{item.startTime}</td>
-                  <td>{item.endTime}</td>
+                  <td className="w-60">{item?.room?.name}</td>
+                  <td>{item?.room?.roomNo}</td>
+                  <td>{item?.date.split("T")[0]}</td>
+                  <td>{item?.startTime}</td>
+                  <td>{item?.endTime}</td>
                   <td>
                     <div className="">
                       <button
@@ -73,12 +73,12 @@ const ShowSlot = () => {
                       >
                         Update
                       </button>
-                      <UpdateSlote id={item._id}></UpdateSlote>
+                      <UpdateSlote id={item?._id}></UpdateSlote>
                     </div>
                   </td>
                   <td>
                     <button
-                      onClick={() => deletedSloteHandler(item._id)}
+                      onClick={() => deletedSloteHandler(item?._id)}
                       className="btn btn-xs bg-red-500 text-white"
                     >
                       Delete

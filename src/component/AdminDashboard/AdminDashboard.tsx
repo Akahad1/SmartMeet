@@ -1,21 +1,15 @@
 import UsersTable from "./UsersTable/UsersTable";
 import DashboardCards from "./DashboardCards/DashboardCards";
 
-import {
-  useGetAllBookingQuery,
-  useGetAllUserQuery,
-} from "../../redux/fearutes/adminManagmentApi/adminManagmentApi";
+import { useGetAllUserQuery } from "../../redux/fearutes/adminManagmentApi/adminManagmentApi";
 import Loader from "../Loader/Loader";
 import BookingsChart from "./BookingsChart/BookingsChart";
 
 const Dashboard = () => {
   const { data: userData, isLoading: userLoading } =
     useGetAllUserQuery(undefined);
-  const { data: BookingData, isLoading } = useGetAllBookingQuery(undefined);
+
   if (userLoading) {
-    return <Loader></Loader>;
-  }
-  if (isLoading) {
     return <Loader></Loader>;
   }
 

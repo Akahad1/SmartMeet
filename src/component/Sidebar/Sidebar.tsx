@@ -9,12 +9,9 @@ import {
   FaCog,
   FaBars,
   FaMeetup,
-  FaChevronUp,
-  FaAngleDown,
 } from "react-icons/fa";
 import DashboardNavbar from "../../pages/Deashboard/DashboardNavber/DashboardNavber";
-import { Link, Outlet } from "react-router-dom";
-import { CiLock } from "react-icons/ci";
+import { Outlet } from "react-router-dom";
 
 const ResponsiveSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

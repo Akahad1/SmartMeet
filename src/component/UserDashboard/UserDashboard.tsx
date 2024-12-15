@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
@@ -7,9 +7,11 @@ import {
   useGetMyBookingQuery,
   useGetUserQuery,
 } from "../../redux/fearutes/userManagmentApi/UsermanagmentApi";
-import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { useAppSelector } from "../../redux/hook";
 import { useCurrentToken } from "../../redux/fearutes/auth/authSlice";
 import { veryfiyToken } from "../../utils/veryfiyToken";
+import { Link } from "react-router-dom";
+import { FaHand } from "react-icons/fa6";
 
 // Register Chart.js modules
 Chart.register(...registerables);
@@ -17,7 +19,7 @@ Chart.register(...registerables);
 const UserDashboard = () => {
   // Fetching user profile and booking data
   const token = useAppSelector(useCurrentToken);
-  const dispatch = useAppDispatch();
+
   let user;
   if (token) {
     user = veryfiyToken(token);
@@ -84,7 +86,7 @@ const UserDashboard = () => {
       {/* Profile Section */}
       <div className="bg-white dark:bg-slate-800 dark:text-white p-4 rounded shadow">
         <span className="text-xl font-semibold mr-2">
-          Hi {userProfile?.data.name},
+          <FaHand className="inline mr-2"></FaHand> Hi {userProfile?.data.name},
         </span>
         here's what's happening with your store today.
       </div>
@@ -138,9 +140,11 @@ const UserDashboard = () => {
       {/* Settings Section */}
       <div className="bg-white dark:bg-slate-800 dark:text-white p-4 rounded shadow">
         <h2 className="text-xl font-semibold mb-4">Settings</h2>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
-          Edit Profile
-        </button>
+        <Link to="/dashboard/profile">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded">
+            Edit Profile
+          </button>
+        </Link>
       </div>
     </div>
   );

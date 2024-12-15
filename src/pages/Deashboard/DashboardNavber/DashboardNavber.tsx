@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { FaUser, FaHome } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -11,28 +10,9 @@ import {
 import { veryfiyToken } from "../../../utils/veryfiyToken";
 import { useGetUserQuery } from "../../../redux/fearutes/userManagmentApi/UsermanagmentApi";
 import Loader from "../../../component/Loader/Loader";
+import DarkModeToggle from "../../../component/Mode/Mode";
 
 const DashboardNavbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check if the user previously selected dark mode in the local storage
-    const savedMode = localStorage.getItem("darkMode");
-    if (savedMode) {
-      setDarkMode(savedMode === "true");
-    }
-  }, []);
-
-  useEffect(() => {
-    // Apply the class to the body to switch between light and dark modes
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
-    }
-  }, [darkMode]);
   const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
   let user;
@@ -55,12 +35,7 @@ const DashboardNavbar = () => {
         <div className="navbar-end mr-0 lg:mr-3">
           <div className="flex gap-3">
             <div className="lg:mr-2 mt-4">
-              <input
-                type="checkbox"
-                className="toggle toggle-accent"
-                checked={darkMode}
-                onChange={() => setDarkMode(!darkMode)}
-              />
+              <DarkModeToggle></DarkModeToggle>
             </div>
             <div className="lg:mr-2 mt-2">
               <FullscreenToggle></FullscreenToggle>
@@ -98,7 +73,7 @@ const DashboardNavbar = () => {
                           </Link>
                         </li>
                         <li className="flex">
-                          <Link to="/profile">
+                          <Link to="/dashboard/profile">
                             {" "}
                             <FaUser className="inline h-4 mr-2 " /> Profile
                           </Link>
